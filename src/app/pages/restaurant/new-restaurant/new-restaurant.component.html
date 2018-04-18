@@ -1,3 +1,50 @@
-<p>
-  new-restaurant works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">New Restaurant</h3>
+        </div>
+        <div class="panel-body">
+          <form>
+            <div class=" form-group">
+              <label>Restaurant Name</label>
+              <input type="text" placeholder="Enter Restaurant Name" name="restaurant_name" class="form-control" required="">
+            </div>
+            <div class="form-group">
+              <label>Address</label>
+              <textarea placeholder="Enter Address " name="restaurant_address" onfocus="geolocate()" rows="3" id="autocomplete" class="form-control"
+                required="" autocomplete="off"></textarea>
+              <br>
+            </div>
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <label>Restaurant longitude</label>
+                <input type="text" name="restaurant_long" id="longitude" placeholder="Longitude" value="" class="form-control" required="">
+              </div>
+              <div class="col-sm-4 form-group">
+                <label>Restaurant Latitude</label>
+                <input type="text" name="restaurant_lat" id="latitude" placeholder="Latitude" value="" class="form-control" required="">
+              </div>
+              <div class="col-sm-4 form-group">
+                <label>Zip</label>
+                <input type="text" placeholder="Enter Zip Code Here.." class="form-control" name="restaurant_zipcode" required="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <label>Restaurant Start time</label>
+                <input type="time" placeholder="Enter Start time Here.." class="form-control" name="restaurant_start_time" required="">
+              </div>
+              <div class="col-sm-6 form-group">
+                <label>Delivery_time</label>
+                <input type="time" placeholder="Enter delivery time Here.." class="form-control" name="delivery_time" required="">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-info" id="Submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

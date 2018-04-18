@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">New Corporate</h3>
+        </div>
+        <div class="panel-body">
+          <form>
+            <div class=" form-group">
+              <label>Corporate Name</label>
+              <input type="text" placeholder="Enter Corporate Name" class="form-control" name="corporate_name" required="">
+            </div>
+            <div class="form-group">
+              <label>Corporate Address</label>
+              <textarea placeholder="Enter Address " name="corporate_address" onfocus="geolocate()" rows="3" id="autocomplete" class="form-control"
+                required="" autocomplete="off"></textarea>
+              <br>
+            </div>
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <label>Corporate City</label>
+                <input type="text" name="corporate_city" id="locality" placeholder="Corporate City" value="" class="form-control" required="">
+              </div>
+              <div class="col-sm-4 form-group">
+                <label>Corporate State</label>
+                <input type="text" name="corporate_state" id="administrative_area_level_1" placeholder="Corporate State" value="" class="form-control"
+                  required="">
+              </div>
+              <div class="col-sm-4 form-group">
+                <label>Corporate Country</label>
+                <input type="text" id="country" placeholder="Enter email id" class="form-control" name="corporate_country" required="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <label>Contact Person Name</label>
+                <input type="text" name="contact_name" id="personname" placeholder="contact person" value="" class="form-control" required="">
+              </div>
+              <div class="col-sm-4 form-group">
+                <label>Email Id</label>
+                <input type="email" placeholder="Enter email id" class="form-control" name="contact_email">
+              </div>
+              <div class="col-sm-4 form-group">
+                <label>Contact Person Mobile</label>
+                <input type="text" name="contact_phone" id="mobile" placeholder="mobile" value="" class="form-control" required="">
+              </div>
+              <button type="submit" class="btn btn-lg btn-info" id="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
