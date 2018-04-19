@@ -7,7 +7,10 @@ const routes: Routes = [
     path: '', component: PagesComponent,
     children: [
       {
-        path: '', pathMatch: 'full', redirectTo: 'restaurant'
+        path: '', pathMatch: 'full', redirectTo: '/'
+      },
+      {
+        path: '', loadChildren: './dashboard/dashboard.module#DashboardModule'
       },
       {
         path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantModule'
