@@ -11,7 +11,8 @@ import { CorporateService } from '../corporate.service';
 })
 export class NewCorporateComponent implements OnInit {
   corporateFormGroup: FormGroup;
-  constructor( private title: Title,
+  constructor(private title: Title,
+    private router: Router,
     private corporateService: CorporateService ) { }
 
   ngOnInit() {
@@ -48,7 +49,9 @@ export class NewCorporateComponent implements OnInit {
     if (this.corporateFormGroup.valid) {
       this.corporateService.createCorporate(this.corporateFormGroup.value)
       .subscribe((data) => {
-        console.log(data);
+        if (data.status === 201) {
+          this.router.navigate(['/corporate/list']);
+        }
       });
     }
   }

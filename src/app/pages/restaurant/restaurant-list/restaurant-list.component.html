@@ -23,10 +23,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Test 123</td>
-            <td>sadfs</td>
-            <td>Edit | Delete</td>
+          <tr *ngFor="let restaurant of restaurants; let i = index">
+            <td>{{restaurant.restaurant_name}}</td>
+            <td>{{restaurant.restaurant_address}}</td>
+            <td><a href="javascript:;">Edit</a> | <a href="javascript:;" (click)="deleteRestaurant(restaurant.restaurant_id, i)">Delete</a></td>
           </tr>
         </tbody>
       </table>

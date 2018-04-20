@@ -4,6 +4,7 @@ export class Restaurant {
     restaurant_long: number;
     restaurant_lat: number;
     restaurant_zipcode: number;
+    restaurant_type: number;
     restaurant_start_time: string;
     delivery_time: string;
 }

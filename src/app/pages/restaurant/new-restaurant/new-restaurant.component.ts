@@ -20,6 +20,9 @@ export class NewRestaurantComponent implements OnInit {
       restaurant_name: new FormControl('', [
         Validators.required
       ]),
+      restaurant_type: new FormControl('', [
+        Validators.required
+      ]),
       restaurant_address: new FormControl('', [
         Validators.required
       ]),
