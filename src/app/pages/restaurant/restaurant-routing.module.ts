@@ -7,10 +7,13 @@ const routes: Routes = [
     path: '', component: RestaurantComponent,
     children: [
       {
-        path: '', pathMatch: 'full', redirectTo: 'new-restaurant'
+        path: '', pathMatch: 'full', redirectTo: 'list'
       },
       {
-        path: 'new-restaurant', loadChildren: './new-restaurant/new-restaurant.module#NewRestaurantModule'
+        path: 'list', loadChildren: './restaurant-list/restaurant-list.module#RestaurantListModule',
+      },
+      {
+        path: 'new', loadChildren: './new-restaurant/new-restaurant.module#NewRestaurantModule'
       }
     ]
   }

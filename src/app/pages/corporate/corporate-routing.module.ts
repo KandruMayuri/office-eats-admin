@@ -7,10 +7,13 @@ const routes: Routes = [
     path: '', component: CorporateComponent,
     children: [
       {
-        path: '', pathMatch: 'full', redirectTo: 'new-corporate'
+        path: '', pathMatch: 'full', redirectTo: 'list'
       },
       {
-        path: 'new-corporate', loadChildren: './new-corporate/new-corporate.module#NewCorporateModule'
+        path: 'list', loadChildren: './corporate-list/corporate-list.module#CorporateListModule'
+      },
+      {
+        path: 'new', loadChildren: './new-corporate/new-corporate.module#NewCorporateModule'
       }
     ]
   }
