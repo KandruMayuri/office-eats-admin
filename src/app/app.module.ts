@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
-
 
 @NgModule({
   declarations: [
@@ -12,7 +11,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgBootstrapFormValidationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

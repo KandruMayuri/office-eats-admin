@@ -12,6 +12,7 @@ import { RestaurantService } from '../restaurant.service';
 export class NewRestaurantComponent implements OnInit {
   restaurantFormGroup: FormGroup;
   constructor(private title: Title,
+    private router: Router,
     private restaurantService: RestaurantService) { }
 
   ngOnInit() {
@@ -48,7 +49,9 @@ export class NewRestaurantComponent implements OnInit {
     if (this.restaurantFormGroup.valid) {
       this.restaurantService.createRestaurant(this.restaurantFormGroup.value)
       .subscribe((data) => {
-        console.log(data);
+        if (data.status === 201) {
+          this.router.navigate(['/restaurant/list']);
+        }
       });
     }
   }

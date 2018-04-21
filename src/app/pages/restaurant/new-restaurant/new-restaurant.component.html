@@ -12,7 +12,7 @@
         <h3 class="panel-title">New Restaurant</h3>
       </div>
       <div class="panel-body">
-        <form [formGroup]="restaurantFormGroup" novalidate="novalidate">
+        <form [formGroup]="restaurantFormGroup" novalidate="novalidate" (validSubmit)="createRestaurant()">
           <div class="row">
             <div class="col-sm-6">
               <div class=" form-group">
@@ -36,9 +36,8 @@
 
           <div class="form-group">
             <label>Address</label>
-            <textarea placeholder="Enter Address " name="restaurant_address" rows="3" id="autocomplete" class="form-control" autocomplete="off"
+            <textarea placeholder="Enter Address" name="restaurant_address" rows="3" id="autocomplete" class="form-control" autocomplete="off"
               formControlName="restaurant_address"></textarea>
-            <br>
           </div>
           <div class="row">
             <div class="col-sm-4 form-group">
@@ -64,7 +63,7 @@
               <input type="time" placeholder="Enter delivery time Here.." class="form-control" name="delivery_time" formControlName="delivery_time">
             </div>
           </div>
-          <button type="submit" class="btn btn-primary" id="Submit" (click)="createRestaurant()">Save</button>
+          <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>
     </div>
