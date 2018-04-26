@@ -18,28 +18,19 @@ export class NewRestaurantComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle('New Restaurant | Office Eats Admin');
     this.restaurantFormGroup = new FormGroup({
-      restaurant_name: new FormControl('', [
+      r_name: new FormControl('', [
         Validators.required
       ]),
       restaurant_type: new FormControl('', [
         Validators.required
       ]),
-      restaurant_address: new FormControl('', [
+      r_pincode: new FormControl('', [
         Validators.required
       ]),
-      restaurant_long: new FormControl('', [
+      r_open_time: new FormControl('', [
         Validators.required
       ]),
-      restaurant_lat: new FormControl('', [
-        Validators.required
-      ]),
-      restaurant_zipcode: new FormControl('', [
-        Validators.required
-      ]),
-      restaurant_start_time: new FormControl('', [
-        Validators.required
-      ]),
-      delivery_time: new FormControl('', [
+      r_close_time: new FormControl('', [
         Validators.required
       ])
     });

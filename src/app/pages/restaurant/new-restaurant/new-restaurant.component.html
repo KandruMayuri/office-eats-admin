@@ -17,7 +17,7 @@
             <div class="col-sm-6">
               <div class=" form-group">
                 <label>Restaurant Name</label>
-                <input type="text" placeholder="Enter Restaurant Name" name="restaurant_name" class="form-control" formControlName="restaurant_name">
+                <input type="text" placeholder="Enter Restaurant Name" name="r_name" class="form-control" formControlName="r_name">
               </div>
             </div>
             <div class="col-sm-6">
@@ -33,35 +33,124 @@
               </div>
             </div>
           </div>
-
           <div class="form-group">
-            <label>Address</label>
-            <textarea placeholder="Enter Address" name="restaurant_address" rows="3" id="autocomplete" class="form-control" autocomplete="off"
-              formControlName="restaurant_address"></textarea>
+            <label>Email</label>
+            <input type="text" class="form-control" name="r_email" id="r_email">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Phone Number 1</label>
+                <input type="text" class="form-control" name="r_phone_1" id="r_phone_1">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Phone Number 2</label>
+                <input type="text" class="form-control" name="r_phone_2" id="r_phone_2">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Fax</label>
+                <input type="text" class="form-control" name="r_fax" id="r_fax">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Open Days</label>
+                <br>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="">Mon
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="">Tues
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="">Wed
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="">Thru
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="">Fri
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="">Sat
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="">Sun
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Street 1</label>
+                <input type="text" class="form-control" name="r_street_1" id="r_street_1">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Street 2</label>
+                <input type="text" class="form-control" name="r_street_2" id="r_street_2">
+              </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-sm-4 form-group">
-              <label>Restaurant longitude</label>
-              <input type="text" name="restaurant_long" id="longitude" placeholder="Longitude" class="form-control" formControlName="restaurant_long">
+              <label>City</label>
+              <input type="text" name="r_city" id="r_city" class="form-control">
             </div>
             <div class="col-sm-4 form-group">
-              <label>Restaurant Latitude</label>
-              <input type="text" name="restaurant_lat" id="latitude" placeholder="Latitude" class="form-control" formControlName="restaurant_lat">
+              <label>State</label>
+              <input type="text" name="r_state" id="r_state" class="form-control">
             </div>
             <div class="col-sm-4 form-group">
               <label>Zip</label>
-              <input type="text" placeholder="Enter Zip Code Here.." class="form-control" name="restaurant_zipcode" formControlName="restaurant_zipcode">
+              <input type="text" class="form-control" name="r_pincode" formControlName="r_pincode">
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6 form-group">
-              <label>Restaurant Start time</label>
-              <input type="time" placeholder="Enter Start time Here.." class="form-control" name="restaurant_start_time" formControlName="restaurant_start_time">
+              <label>Open Time</label>
+              <input type="time" class="form-control" name="r_open_time" formControlName="r_open_time">
             </div>
             <div class="col-sm-6 form-group">
-              <label>Delivery_time</label>
-              <input type="time" placeholder="Enter delivery time Here.." class="form-control" name="delivery_time" formControlName="delivery_time">
+              <label>Close Time</label>
+              <input type="time" class="form-control" name="r_close_time" formControlName="r_close_time">
             </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Min Amount</label>
+                <input type="text" class="form-control" name="r_min_amount" id="r_min_amount">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Individual Delivery Amount</label>
+                <input type="text" class="form-control" name="r_individual_delivery_fee" id="r_individual_delivery_fee">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Catering Delivery Amount</label>
+                <input type="text" class="form-control" name="r_catering_delivery_fee" id="r_catering_delivery_fee">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Menu Types</label>
+            <select class="form-control" name="restaurant_menu_type" id="restaurant_menu_type" multiple="multiple">
+              <option value="">Select Menu Types</option>
+              <option value="1">Salads</option>
+              <option value="2">Desserts</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
