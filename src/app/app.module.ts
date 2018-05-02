@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { baseURL } from './shared/constants/base-url';
+import { StorageService } from './shared/services/storage.service';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,15 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgBootstrapFormValidationModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    StorageService,
+    {
+      provide: 'BaseURL',
+      useValue: baseURL
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
