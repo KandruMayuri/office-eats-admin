@@ -11,6 +11,9 @@ const routes: Routes = [
       },
       {
         path: 'restaurants', loadChildren: './restaurant/restaurant.module#RestaurantModule'
+      },
+      {
+        path: 'restaurant/new', loadChildren: './restaurant/restaurant-form/restaurant-form.module#RestaurantFormModule'
       }
     ]
   }

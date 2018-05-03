@@ -15,12 +15,11 @@ export class UserService {
       this.storage = storageService;
   }
   public getToken(): any {
-        return this.storage.retrieve('currentUser');
+    return this.storage.retrieve('currentUser');
   }
 
   public resetCurrentUser() {
     this.storage.store('currentUser', '');
-    this.storage.store('corporate_id', '');
   }
 
   signIn(user: User) {
