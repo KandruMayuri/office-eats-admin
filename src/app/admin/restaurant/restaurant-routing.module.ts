@@ -7,10 +7,10 @@ const routes: Routes = [
     path: '', component: RestaurantComponent,
     children: [
       {
-        path: '', redirectTo: 'restaurants', pathMatch: 'full'
+        path: '', pathMatch: 'full', redirectTo: 'restaurants'
       },
       {
-        path: '', loadChildren: './restaurant-restaurant-list.module#RestaurantListModule'
+        path: '', loadChildren: './restaurant-list/restaurant-list.module#RestaurantListModule'
       }
     ]
   }

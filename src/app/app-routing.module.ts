@@ -7,10 +7,12 @@ const routes: Routes = [
     path: '', pathMatch: 'full', redirectTo: 'auth'
   },
   {
-    path: '', loadChildren: './admin/admin.module#AdminModule'
+    path: '', loadChildren: './admin/admin.module#AdminModule',
+    canActivate: [AuthGuard],
   },
   {
-    path: 'auth', loadChildren: './auth/auth.module#AuthModule', canActivate: [AuthGuard],
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule',
   }
 ];
 
