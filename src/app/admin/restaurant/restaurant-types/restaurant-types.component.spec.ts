@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { RestaurantTypesComponent } from './restaurant-types.component';
+
+describe('RestaurantTypesComponent', () => {
+  let component: RestaurantTypesComponent;
+  let fixture: ComponentFixture<RestaurantTypesComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ RestaurantTypesComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(RestaurantTypesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

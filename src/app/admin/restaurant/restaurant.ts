@@ -25,7 +25,17 @@ export interface Restaurant {
   restaurantZipCode: number;
 }
 
+export interface RestaurantType {
+  restaurantTypeId: number;
+  restaurantTypeName: string;
+}
+
 export interface GetRestaurantsResponse {
   obj_response: CommonResponse;
   result: Restaurant [];
+}
+
+export interface GetRestaurantTypesResponse {
+  obj_response: CommonResponse;
+  result: RestaurantType [];
 }
