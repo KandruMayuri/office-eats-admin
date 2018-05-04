@@ -1,0 +1,147 @@
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="restaurantFormGroup" novalidate="novalidate" (validSubmit)="createRestaurant()">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class=" form-group">
+            <label>Restaurant Name</label>
+            <input type="text" placeholder="Enter Restaurant Name" name="restaurantTypeId" class="form-control" formControlName="restaurantTypeId">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class=" form-group">
+            <label>Restaurant Type</label>
+            <select class="form-control" name="restaurant_type" id="restaurant_type" formControlName="restaurantTypeName">
+              <option value="">Select Restaurant Type</option>
+              <option value="1">Ethnic</option>
+              <option value="2">Fast food</option>
+              <option value="3">Fast casual</option>
+              <option value="4">Casual dining</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" name="restaurantEmail" id="restaurantEmail" formControlName="restaurantEmail">
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Phone Number 1</label>
+            <input type="text" class="form-control" name="restaurantPhone1" id="restaurantPhone1" formControlName="restaurantPhone1">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Phone Number 2</label>
+            <input type="text" class="form-control" name="restaurantPhone2" id="restaurantPhone2" formControlName="restaurantPhone2">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Fax</label>
+            <input type="text" class="form-control" name="restaurantFaxNumber" id="restaurantFaxNumber" formControlName="restaurantFaxNumber">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Open Days</label>
+            <br>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Mon
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Tues
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Wed
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Thru
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Fri
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Sat
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Sun
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Street 1</label>
+            <input type="text" class="form-control" name="restaurantStreet1" id="restaurantStreet1"  formControlName="restaurantStreet1">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Street 2</label>
+            <input type="text" class="form-control" name="restaurantStreet2" id="restaurantStreet2" formControlName="restaurantStreet2">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label>City</label>
+          <input type="text" name="restaurantCity" id="restaurantCity" class="form-control"  formControlName="restaurantCity">
+        </div>
+        <div class="col-sm-4 form-group">
+          <label>State</label>
+          <input type="text" name="restaurantState" id="restaurantState" class="form-control" formControlName="restaurantState">
+        </div>
+        <div class="col-sm-4 form-group">
+          <label>Zip</label>
+          <input type="text" class="form-control" name="restaurantZipCode" formControlName="restaurantZipCode">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <label>Open Time</label>
+          <input type="time" class="form-control" name="restaurantOpenTime" formControlName="restaurantOpenTime">
+        </div>
+        <div class="col-sm-6 form-group">
+          <label>Close Time</label>
+          <input type="time" class="form-control" name="restaurantCloseTime" formControlName="restaurantCloseTime">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Min Amount</label>
+            <input type="text" class="form-control" name="restaurantMinimumAmount" id="restaurantMinimumAmount" formControlName="restaurantMinimumAmount">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Individual Delivery Amount</label>
+            <input type="text" class="form-control" name="restaurantIndividualDeliveryFee" id="restaurantIndividualDeliveryFee" formControlName="restaurantIndividualDeliveryFee">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Catering Delivery Amount</label>
+            <input type="text" class="form-control" name="restaurantCateringDeliveryFee" id="restaurantCateringDeliveryFee" formControlName="restaurantCateringDeliveryFee">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Menu Types</label>
+        <select class="form-control" name="restaurant_menu_type" id="restaurant_menu_type" multiple="multiple">
+          <option value="">Select Menu Types</option>
+          <option value="1">Salads</option>
+          <option value="2">Desserts</option>
+        </select>
+      </div>
+      <code>{{restaurantFormGroup.value | json}}</code>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>
