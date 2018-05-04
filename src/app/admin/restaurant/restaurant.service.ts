@@ -3,13 +3,15 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import { baseURL } from '../../shared/constants/base-url';
-import { GetRestaurantsResponse, GetRestaurantTypesResponse } from './restaurant';
+import { GetRestaurantsResponse, GetRestaurantTypesResponse, RestaurantType } from './restaurant';
+import { CommonObjResponse } from '../../shared/models/common-response';
 
 @Injectable()
 export class RestaurantService {
 
   private getRestaurantsUrl = baseURL + 'restaurants/listing';
   private getRestaurantTypesUrl = baseURL + 'restaurants/type/list';
+  private createRestaurantTypeUrl = baseURL + 'restaurants/type/create';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -29,4 +31,11 @@ export class RestaurantService {
       });
   }
 
+  createRestaurantType(restaurantType: RestaurantType) {
+    return this.httpClient
+      .post<CommonObjResponse>(this.createRestaurantTypeUrl, restaurantType)
+      .map(res => {
+        return res;
+      });
+  }
 }

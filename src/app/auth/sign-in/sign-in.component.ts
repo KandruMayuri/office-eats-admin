@@ -6,7 +6,7 @@ import {
   FormControl
 } from '@angular/forms';
 
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from '../../shared/services/user.service';
 
 @Component({
@@ -17,8 +17,9 @@ import { UserService } from '../../shared/services/user.service';
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
-  constructor(private fb: FormBuilder, private router: Router,
-  private userService: UserService) {  }
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService) {  }
 
   ngOnInit() {
     this.createForm();
