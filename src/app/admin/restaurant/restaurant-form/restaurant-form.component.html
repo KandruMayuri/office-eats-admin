@@ -5,13 +5,13 @@
         <div class="col-sm-6">
           <div class=" form-group">
             <label>Restaurant Name</label>
-            <input type="text" placeholder="Enter Restaurant Name" name="restaurantName" class="form-control" formControlName="restaurantName">
+            <input type="text" placeholder="Enter Restaurant Name" name="restaurantTypeId" class="form-control" formControlName="restaurantTypeId">
           </div>
         </div>
         <div class="col-sm-6">
           <div class=" form-group">
             <label>Restaurant Type</label>
-            <select class="form-control" name="restaurant_type" id="restaurant_type" formControlName="restaurant_type">
+            <select class="form-control" name="restaurant_type" id="restaurant_type" formControlName="restaurantTypeName">
               <option value="">Select Restaurant Type</option>
               <option value="1">Ethnic</option>
               <option value="2">Fast food</option>
@@ -78,57 +78,57 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Street 1</label>
-            <input type="text" class="form-control" name="r_street_1" id="r_street_1">
+            <input type="text" class="form-control" name="restaurantStreet1" id="restaurantStreet1"  formControlName="restaurantStreet1">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label>Street 2</label>
-            <input type="text" class="form-control" name="r_street_2" id="r_street_2">
+            <input type="text" class="form-control" name="restaurantStreet2" id="restaurantStreet2" formControlName="restaurantStreet2">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-4 form-group">
           <label>City</label>
-          <input type="text" name="r_city" id="r_city" class="form-control">
+          <input type="text" name="restaurantCity" id="restaurantCity" class="form-control"  formControlName="restaurantCity">
         </div>
         <div class="col-sm-4 form-group">
           <label>State</label>
-          <input type="text" name="r_state" id="r_state" class="form-control">
+          <input type="text" name="restaurantState" id="restaurantState" class="form-control" formControlName="restaurantState">
         </div>
         <div class="col-sm-4 form-group">
           <label>Zip</label>
-          <input type="text" class="form-control" name="r_pincode" formControlName="r_pincode">
+          <input type="text" class="form-control" name="restaurantZipCode" formControlName="restaurantZipCode">
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6 form-group">
           <label>Open Time</label>
-          <input type="time" class="form-control" name="r_open_time" formControlName="r_open_time">
+          <input type="time" class="form-control" name="restaurantOpenTime" formControlName="restaurantOpenTime">
         </div>
         <div class="col-sm-6 form-group">
           <label>Close Time</label>
-          <input type="time" class="form-control" name="r_close_time" formControlName="r_close_time">
+          <input type="time" class="form-control" name="restaurantCloseTime" formControlName="restaurantCloseTime">
         </div>
       </div>
       <div class="row">
         <div class="col-md-4">
           <div class="form-group">
             <label>Min Amount</label>
-            <input type="text" class="form-control" name="r_min_amount" id="r_min_amount">
+            <input type="text" class="form-control" name="restaurantMinimumAmount" id="restaurantMinimumAmount" formControlName="restaurantMinimumAmount">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label>Individual Delivery Amount</label>
-            <input type="text" class="form-control" name="r_individual_delivery_fee" id="r_individual_delivery_fee">
+            <input type="text" class="form-control" name="restaurantIndividualDeliveryFee" id="restaurantIndividualDeliveryFee" formControlName="restaurantIndividualDeliveryFee">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label>Catering Delivery Amount</label>
-            <input type="text" class="form-control" name="r_catering_delivery_fee" id="r_catering_delivery_fee">
+            <input type="text" class="form-control" name="restaurantCateringDeliveryFee" id="restaurantCateringDeliveryFee" formControlName="restaurantCateringDeliveryFee">
           </div>
         </div>
       </div>
@@ -140,6 +140,7 @@
           <option value="2">Desserts</option>
         </select>
       </div>
+      <code>{{restaurantFormGroup.value | json}}</code>
       <button type="submit" class="btn btn-primary">Save</button>
     </form>
   </div>

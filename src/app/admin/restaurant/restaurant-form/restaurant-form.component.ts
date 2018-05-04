@@ -27,6 +27,42 @@ export class RestaurantFormComponent implements OnInit {
       ]),
       restaurantFaxNumber: new FormControl('', [
         Validators.required
+      ]),
+      restaurantZipCode: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantTypeId: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantIndividualDeliveryFee: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantMinimumAmount: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantStreet2: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantOpenTime: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantCloseTime: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantCateringDeliveryFee: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantState: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantCity: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantStreet1: new FormControl('', [
+        Validators.required
+      ]),
+      restaurantTypeName: new FormControl('', [
+        Validators.required
       ])
     });
   }
