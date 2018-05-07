@@ -17,6 +17,13 @@ const routes: Routes = [
       },
       {
         path: 'restaurant/types', loadChildren: './restaurant/restaurant-types/restaurant-types.module#RestaurantTypesModule'
+      },
+      {
+        path: 'restaurant/menus', loadChildren: './restaurant/restaurant-menus/restaurant-menus.module#RestaurantMenusModule'
+      },
+      {
+        path: 'restaurant/menu/types',
+        loadChildren: './restaurant/restaurant-menu-types/restaurant-menu-types.module#RestaurantMenuTypesModule'
       }
     ]
   }

@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{modalTitle}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="restaurantMenuForm" novalidate="novalidate" (ngSubmit)="saveRestaurantType()" autocomplete="off">
+    <div class="form-group">
+      <label for="restaurantMenuTypeName">Restaurant Menu Name</label>
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuTypeName'].errors && !restaurantMenuForm.controls['restaurantMenuTypeName'].pristine}"
+        id="restaurantMenuTypeName" formControlName="restaurantMenuTypeName" placeholder="Enter restaurant menu name">
+      <div *ngIf="restaurantMenuForm.controls['restaurantMenuTypeName'].errors && !restaurantMenuForm.controls['restaurantMenuTypeName'].pristine"
+        class="invalid-feedback">
+        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuTypeName'].errors.required">Restaurant type is required.</div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" (click)="saveRestaurantType()" [disabled]="restaurantMenuForm.invalid">Save</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

@@ -11,6 +11,8 @@ import { RestaurantService } from './restaurant/restaurant.service';
 import { CommonInterceptor } from '../shared/interceptors/common.interceptor';
 import { TokenInterceptor } from '../shared/interceptors/token.interceptor';
 import { RestaurantTypeFormComponent } from './restaurant/restaurant-type-form/restaurant-type-form.component';
+import { RestaurantMenuFormComponent } from './restaurant/restaurant-menu-form/restaurant-menu-form.component';
+import { RestaurantMenuTypeFormComponent } from './restaurant/restaurant-menu-type-form/restaurant-menu-type-form.component';
 
 
 @NgModule({
@@ -22,8 +24,8 @@ import { RestaurantTypeFormComponent } from './restaurant/restaurant-type-form/r
     NgbModule,
     AdminRoutingModule
   ],
-  declarations: [AdminComponent, RestaurantTypeFormComponent],
-  entryComponents: [RestaurantTypeFormComponent],
+  declarations: [AdminComponent, RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
+  entryComponents: [RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
   providers: [
     UserService,
     RestaurantService,

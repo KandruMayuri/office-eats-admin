@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RestaurantService } from '../restaurant.service';
 
 @Component({
   selector: 'app-restaurant-form',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class RestaurantFormComponent implements OnInit {
 
   restaurantFormGroup: FormGroup;
-  constructor() { }
+  constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit() {
     this.restaurantFormGroup = new FormGroup({
@@ -25,11 +26,19 @@ export class RestaurantFormComponent implements OnInit {
       restaurantPhone2: new FormControl('', [
         Validators.required
       ]),
+      restaurantTextPhoneNumber: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5)
+      ]),
       restaurantFaxNumber: new FormControl('', [
         Validators.required
       ]),
-      restaurantZipCode: new FormControl('', [
+      restaurantOpenDays: new FormControl('', [
         Validators.required
+      ]),
+      restaurantZipCode: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6)
       ]),
       restaurantTypeId: new FormControl('', [
         Validators.required
@@ -58,10 +67,14 @@ export class RestaurantFormComponent implements OnInit {
       restaurantCity: new FormControl('', [
         Validators.required
       ]),
+      restaurantCountry: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5)
+      ]),
       restaurantStreet1: new FormControl('', [
         Validators.required
       ]),
-      restaurantTypeName: new FormControl('', [
+      restaurantDiscount: new FormControl('', [
         Validators.required
       ])
     });
@@ -69,7 +82,9 @@ export class RestaurantFormComponent implements OnInit {
 
   createRestaurant() {
     if (this.restaurantFormGroup.valid) {
-
+      this.restaurantService.createRestaurant(this.restaurantFormGroup.value).subscribe(data => {
+        console.log(data);
+      });
     }
   }
 

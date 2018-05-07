@@ -30,6 +30,16 @@ export interface RestaurantType {
   restaurantTypeName: string;
 }
 
+export interface RestaurantMenu {
+  restaurantMenuTypeId: number;
+  restaurantMenuTypeName: string;
+}
+
+export interface RestaurantMenuType {
+  restaurantMenuTypeId: number;
+  restaurantMenuTypeName: string;
+}
+
 export interface GetRestaurantsResponse {
   obj_response: CommonResponse;
   result: Restaurant [];
@@ -38,4 +48,14 @@ export interface GetRestaurantsResponse {
 export interface GetRestaurantTypesResponse {
   obj_response: CommonResponse;
   result: RestaurantType [];
+}
+
+export interface GetRestaurantMenusResponse {
+  obj_response: CommonResponse;
+  result: RestaurantMenu [];
+}
+
+export interface GetRestaurantMenuTypesResponse {
+  obj_response: CommonResponse;
+  result: RestaurantMenuType [];
 }
