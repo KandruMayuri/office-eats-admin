@@ -15,26 +15,31 @@ export class RestaurantFormComponent implements OnInit {
   ngOnInit() {
     this.restaurantFormGroup = new FormGroup({
       restaurantName: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(3)
       ]),
       restaurantEmail: new FormControl('', [
         Validators.required
       ]),
       restaurantPhone1: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(5)
       ]),
       restaurantPhone2: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(5)
       ]),
       restaurantTextPhoneNumber: new FormControl('', [
         Validators.required,
         Validators.minLength(5)
       ]),
       restaurantFaxNumber: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(5)
       ]),
       restaurantOpenDays: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(7)
       ]),
       restaurantZipCode: new FormControl('', [
         Validators.required,
@@ -62,17 +67,20 @@ export class RestaurantFormComponent implements OnInit {
         Validators.required
       ]),
       restaurantState: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(3)
       ]),
       restaurantCity: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(3)
       ]),
       restaurantCountry: new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(3)
       ]),
       restaurantStreet1: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(3)
       ]),
       restaurantDiscount: new FormControl('', [
         Validators.required

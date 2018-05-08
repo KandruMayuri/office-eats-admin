@@ -14,7 +14,7 @@
         <div class="col-sm-6">
           <div class=" form-group">
             <label>Restaurant Name</label>
-            <input type="text" placeholder="Enter Restaurant Name" name="restaurantName" class="form-control" formControlName="restaurantName">
+            <input type="text" placeholder="Enter Restaurant Name" name="restaurantName" class="form-control" formControlName="restaurantName" maxlength="50">
           </div>
         </div>
         <div class="col-sm-6">
@@ -38,19 +38,19 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Phone Number 1</label>
-            <input type="text" class="form-control" name="restaurantPhone1" id="restaurantPhone1" formControlName="restaurantPhone1">
+            <input type="text" class="form-control" name="restaurantPhone1" id="restaurantPhone1" formControlName="restaurantPhone1" maxlength="12">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label>Phone Number 2</label>
-            <input type="text" class="form-control" name="restaurantPhone2" id="restaurantPhone2" formControlName="restaurantPhone2">
+            <input type="text" class="form-control" name="restaurantPhone2" id="restaurantPhone2" formControlName="restaurantPhone2" maxlength="12">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label>Text Phone Number</label>
-            <input type="text" class="form-control" name="restaurantTextPhoneNumber" id="restaurantTextPhoneNumber" formControlName="restaurantTextPhoneNumber">
+            <input type="text" class="form-control" name="restaurantTextPhoneNumber" id="restaurantTextPhoneNumber" formControlName="restaurantTextPhoneNumber" maxlength="12">
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Fax</label>
-            <input type="text" class="form-control" name="restaurantFaxNumber" id="restaurantFaxNumber" formControlName="restaurantFaxNumber">
+            <input type="text" class="form-control" name="restaurantFaxNumber" id="restaurantFaxNumber" formControlName="restaurantFaxNumber" maxlength="12">
           </div>
         </div>
         <div class="col-md-6">
@@ -66,7 +66,7 @@
             <label>Open Days</label>
             <br>
             <label class="checkbox-inline">
-              <input type="checkbox" value="" formControlName="restaurantOpenDays">Mon
+              <input type="checkbox" value="" formControlName="restaurantOpenDays" maxlength="7">Mon
             </label>
             <label class="checkbox-inline">
               <input type="checkbox" value="" formControlName="restaurantOpenDays">Tues
@@ -93,7 +93,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Street 1</label>
-            <input type="text" class="form-control" name="restaurantStreet1" id="restaurantStreet1"  formControlName="restaurantStreet1">
+            <input type="text" class="form-control" name="restaurantStreet1" id="restaurantStreet1"  formControlName="restaurantStreet1" maxlength="50">
           </div>
         </div>
         <div class="col-md-6">
@@ -106,19 +106,19 @@
       <div class="row">
         <div class="col-sm-3 form-group">
           <label>City</label>
-          <input type="text" name="restaurantCity" id="restaurantCity" class="form-control"  formControlName="restaurantCity">
+          <input type="text" name="restaurantCity" id="restaurantCity" class="form-control"  formControlName="restaurantCity" maxlength="50">
         </div>
         <div class="col-sm-3 form-group">
           <label>State</label>
-          <input type="text" name="restaurantState" id="restaurantState" class="form-control" formControlName="restaurantState">
+          <input type="text" name="restaurantState" id="restaurantState" class="form-control" formControlName="restaurantState" maxlength="50">
         </div>
         <div class="col-sm-3 form-group">
           <label>Zip</label>
-          <input type="text" class="form-control" name="restaurantZipCode" formControlName="restaurantZipCode">
+          <input type="text" class="form-control" name="restaurantZipCode" formControlName="restaurantZipCode" maxlength="6">
         </div>
         <div class="col-sm-3 form-group">
           <label>Country</label>
-          <input type="text" class="form-control" name="restaurantCountry" formControlName="restaurantCountry">
+          <input type="text" class="form-control" name="restaurantCountry" formControlName="restaurantCountry" maxlength="50">
         </div>
       </div>
       <div class="row">
