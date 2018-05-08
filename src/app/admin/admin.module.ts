@@ -13,7 +13,8 @@ import { TokenInterceptor } from '../shared/interceptors/token.interceptor';
 import { RestaurantTypeFormComponent } from './restaurant/restaurant-type-form/restaurant-type-form.component';
 import { RestaurantMenuFormComponent } from './restaurant/restaurant-menu-form/restaurant-menu-form.component';
 import { RestaurantMenuTypeFormComponent } from './restaurant/restaurant-menu-type-form/restaurant-menu-type-form.component';
-
+import { GrowlModule } from 'primeng/growl';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @NgModule({
   imports: [
@@ -22,13 +23,15 @@ import { RestaurantMenuTypeFormComponent } from './restaurant/restaurant-menu-ty
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    GrowlModule
   ],
   declarations: [AdminComponent, RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
   entryComponents: [RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
   providers: [
     UserService,
     RestaurantService,
+    MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CommonInterceptor,
