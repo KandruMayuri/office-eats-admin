@@ -10,10 +10,12 @@ import { Restaurant } from '../restaurant';
 export class RestaurantListComponent implements OnInit {
 
   restaurants: Restaurant[];
+  isShowLoader: boolean;
 
   constructor( private restaurantService: RestaurantService  ) { }
 
   ngOnInit() {
+    this.isShowLoader = true;
     this.getRestaurants();
   }
 
@@ -21,6 +23,7 @@ export class RestaurantListComponent implements OnInit {
     this.restaurantService.getRestaurants().subscribe(data => {
       if (data.obj_response.status === 201) {
         this.restaurants = data.result;
+        this.isShowLoader = false;
       }
     });
   }

@@ -26,10 +26,7 @@
             <label>Restaurant Type</label>
             <select class="form-control" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantTypeId'].errors && !restaurantFormGroup.controls['restaurantTypeId'].pristine}" name="restaurantTypeId" id="restaurantTypeId" formControlName="restaurantTypeId">
               <option value="">Select Restaurant Type</option>
-              <option value="1">Ethnic</option>
-              <option value="2">Fast food</option>
-              <option value="3">Fast casual</option>
-              <option value="4">Casual dining</option>
+              <option *ngFor="let restaurantType of restaurantTypes" [ngValue]="restaurantType.restaurantTypeId">{{restaurantType.restaurantTypeName}}</option>
             </select>
             <div *ngIf="restaurantFormGroup.controls['restaurantTypeId'].errors && !restaurantFormGroup.controls['restaurantTypeId'].pristine" class="invalid-feedback">
               <div [hidden]="!restaurantFormGroup.controls['restaurantTypeId'].errors.required">Restaurant type is required.</div>
@@ -92,27 +89,10 @@
           <div class="form-group">
             <label>Open Days</label>
             <br>
-            <label class="checkbox-inline">
-              <input type="checkbox" value="" formControlName="restaurantOpenDays" maxlength="7">Mon
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" value="" formControlName="restaurantOpenDays">Tues
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" value="" formControlName="restaurantOpenDays">Wed
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" value="" formControlName="restaurantOpenDays">Thru
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" value="" formControlName="restaurantOpenDays">Fri
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" value="" formControlName="restaurantOpenDays">Sat
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" value="" formControlName="restaurantOpenDays">Sun
-            </label>
+            <div class="form-check form-check-inline" *ngFor="let weekday of weekDays">
+                <input class="form-check-input" type="checkbox" (change)="onChangeWeekDay(weekday.value, $event.target.checked)">
+                <label class="form-check-label" for="inlineCheckbox1">{{weekday.name}}</label>
+              </div>
           </div>
         </div>
       </div>
@@ -189,7 +169,7 @@
         </div>
         <div class="col-sm-4 form-group">
           <label>Discount</label>
-          <input type="time" class="form-control" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantDiscount'].errors && !restaurantFormGroup.controls['restaurantDiscount'].pristine}" name="restaurantDiscount" formControlName="restaurantDiscount">
+          <input type="text" class="form-control" currencyMask  [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantDiscount'].errors && !restaurantFormGroup.controls['restaurantDiscount'].pristine}" name="restaurantDiscount" formControlName="restaurantDiscount">
           <div *ngIf="restaurantFormGroup.controls['restaurantDiscount'].errors && !restaurantFormGroup.controls['restaurantDiscount'].pristine" class="invalid-feedback">
             <div [hidden]="!restaurantFormGroup.controls['restaurantDiscount'].errors.required">Discount is required.</div>
           </div>
@@ -199,7 +179,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Min Amount</label>
-            <input type="text" class="form-control" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantMinimumAmount'].errors && !restaurantFormGroup.controls['restaurantMinimumAmount'].pristine}" name="restaurantMinimumAmount" id="restaurantMinimumAmount" formControlName="restaurantMinimumAmount">
+            <input type="text" class="form-control" currencyMask [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantMinimumAmount'].errors && !restaurantFormGroup.controls['restaurantMinimumAmount'].pristine}" name="restaurantMinimumAmount" id="restaurantMinimumAmount" formControlName="restaurantMinimumAmount">
             <div *ngIf="restaurantFormGroup.controls['restaurantMinimumAmount'].errors && !restaurantFormGroup.controls['restaurantMinimumAmount'].pristine" class="invalid-feedback">
               <div [hidden]="!restaurantFormGroup.controls['restaurantMinimumAmount'].errors.required">Min Amount is required.</div>
             </div>
@@ -208,7 +188,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Individual Delivery Amount</label>
-            <input type="text" class="form-control" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].pristine}" name="restaurantIndividualDeliveryFee" id="restaurantIndividualDeliveryFee" formControlName="restaurantIndividualDeliveryFee">
+            <input type="text" class="form-control" currencyMask [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].pristine}" name="restaurantIndividualDeliveryFee" id="restaurantIndividualDeliveryFee" formControlName="restaurantIndividualDeliveryFee">
             <div *ngIf="restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].pristine" class="invalid-feedback">
               <div [hidden]="!restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].errors.required">Individual Delivery Amount is required.</div>
             </div>
@@ -217,7 +197,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Catering Delivery Amount</label>
-            <input type="text" class="form-control" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantCateringDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantCateringDeliveryFee'].pristine}" name="restaurantCateringDeliveryFee" id="restaurantCateringDeliveryFee" formControlName="restaurantCateringDeliveryFee">
+            <input type="text" class="form-control" currencyMask [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantCateringDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantCateringDeliveryFee'].pristine}" name="restaurantCateringDeliveryFee" id="restaurantCateringDeliveryFee" formControlName="restaurantCateringDeliveryFee">
             <div *ngIf="restaurantFormGroup.controls['restaurantCateringDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantCateringDeliveryFee'].pristine" class="invalid-feedback">
               <div [hidden]="!restaurantFormGroup.controls['restaurantCateringDeliveryFee'].errors.required">ICatering Delivery Amount is required.</div>
             </div>

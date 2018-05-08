@@ -1,11 +1,11 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">Restaurants</li>
-    </ol>
-  </nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Restaurants</li>
+  </ol>
+</nav>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12">    
     <div class="table-responsive">
       <table class="table">
         <thead>
@@ -24,12 +24,17 @@
             <td>{{restaurant.restaurantTypeName}}</td>
             <td>{{restaurant.restaurantEmail}}</td>
             <td>
-                <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-outline-secondary btn-sm">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="btn btn-outline-danger btn-sm">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+    <div class="loader-small m-auto" *ngIf="isShowLoader"></div>
   </div>
 </div>
