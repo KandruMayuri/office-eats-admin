@@ -10,6 +10,7 @@ import { RestaurantService } from '../restaurant.service';
 export class RestaurantFormComponent implements OnInit {
 
   restaurantFormGroup: FormGroup;
+  emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit() {
@@ -19,7 +20,8 @@ export class RestaurantFormComponent implements OnInit {
         Validators.minLength(3)
       ]),
       restaurantEmail: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.pattern(this.emailPattern)
       ]),
       restaurantPhone1: new FormControl('', [
         Validators.required,
