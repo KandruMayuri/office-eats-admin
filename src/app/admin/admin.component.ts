@@ -32,7 +32,7 @@ export class AdminComponent implements OnInit {
     const modalRef = this.modalService.open(RestaurantMenuFormComponent, { centered: true });
     modalRef.componentInstance.modalTitle = 'New Restaurant Menu';
     modalRef.result.then((result) => {
-      this.router.navigate(['restaurant/menus']);
+      // this.router.navigate(['restaurant/menus']);
       console.log(result);
     }, (reason) => {
     });

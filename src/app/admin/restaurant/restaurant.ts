@@ -23,6 +23,7 @@ export interface Restaurant {
   restaurantTextPhoneNumber: number;
   restaurantTypeName: string;
   restaurantZipCode: number;
+  restaurantTypeId: number;
 }
 
 export interface RestaurantType {

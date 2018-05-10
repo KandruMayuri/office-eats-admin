@@ -19,7 +19,7 @@ export class RestaurantService {
 
   private getRestaurantsUrl = baseURL + 'restaurants/listing';
   private getRestaurantTypesUrl = baseURL + 'restaurants/type/list';
-  private getRestaurantMenusUrl = baseURL + 'restaurants/menu/list';
+  private getRestaurantMenusUrl = baseURL + 'restaurants/menu/list/';
   private getRestaurantMenuTypesUrl = baseURL + 'restaurants/menu_type/list';
   private createRestaurantUrl = baseURL + 'restaurants/create';
   private createRestaurantTypeUrl = baseURL + 'restaurants/type/create';
@@ -44,9 +44,9 @@ export class RestaurantService {
       });
   }
 
-  getRestaurantMenus() {
+  getRestaurantMenus(restaurantId: number) {
     return this.httpClient
-      .post<GetRestaurantMenusResponse>(this.getRestaurantMenusUrl, {})
+      .post<GetRestaurantMenusResponse>(this.getRestaurantMenusUrl + restaurantId, {})
       .map(res => {
         return res;
       });

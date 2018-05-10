@@ -3,6 +3,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { RestaurantService } from '../restaurant.service';
 import { RestaurantMenu } from '../restaurant';
 import { RestaurantMenuFormComponent } from '../restaurant-menu-form/restaurant-menu-form.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-menus',
@@ -11,15 +12,19 @@ import { RestaurantMenuFormComponent } from '../restaurant-menu-form/restaurant-
 })
 export class RestaurantMenusComponent implements OnInit {
   restaurantMenus: RestaurantMenu[];
+  restaurantId: number;
   constructor(private restaurantService: RestaurantService,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal,
+    private activatedRoute: ActivatedRoute) {
+      this.activatedRoute.params.subscribe( params => this.restaurantId = params.id );
+     }
 
   ngOnInit() {
     this.getRestaurantMenus();
   }
 
   getRestaurantMenus() {
-    this.restaurantService.getRestaurantMenus().subscribe(data => {
+    this.restaurantService.getRestaurantMenus(this.restaurantId).subscribe(data => {
       if (data.obj_response.status === 201) {
         this.restaurantMenus = data.result;
       }

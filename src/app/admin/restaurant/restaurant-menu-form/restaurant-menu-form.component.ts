@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { MessageService } from 'primeng/components/common/messageservice';
 import {
   FormGroup,
   FormBuilder,
@@ -7,6 +8,8 @@ import {
   FormControl
 } from '@angular/forms';
 import { RestaurantService } from '../restaurant.service';
+import { Restaurant, RestaurantMenuType } from '../restaurant';
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-restaurant-menu-form',
@@ -17,18 +20,27 @@ export class RestaurantMenuFormComponent implements OnInit {
 
   @Input() modalTitle;
   restaurantMenuForm: FormGroup;
+  restaurants: Restaurant[];
+  restaurantMenuTypes: RestaurantMenuType[];
 
   constructor(private fb: FormBuilder,
     private restaurantService: RestaurantService,
-    public activeModal: NgbActiveModal) { }
+    public activeModal: NgbActiveModal,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.createForm();
+    this.getRestaurants();
+    this.getRestaurntMenuTypes();
   }
 
   createForm(): void {
     this.restaurantMenuForm = this.fb.group({
-      restaurantMenuTypeName: ['', Validators.required]
+      restaurantId: ['', Validators.required],
+      restaurantMenuTypeId: ['', Validators.required],
+      restaurantMenuOrderType: ['', Validators.required],
+      restaurantMenuName: ['', Validators.required],
+      restaurantMenuPrice: ['', Validators.required]
     });
   }
 
@@ -36,10 +48,27 @@ export class RestaurantMenuFormComponent implements OnInit {
     if (this.restaurantMenuForm.valid) {
       this.restaurantService.createRestaurantMenu(this.restaurantMenuForm.value).subscribe(data => {
         if (data.obj_response.status === 201) {
+          this.messageService.add({severity: 'success', detail: 'Successfully added restaurant menu.'});
           this.activeModal.close(data.obj_response.message);
         }
       });
     }
+  }
+
+  getRestaurants() {
+    this.restaurantService.getRestaurants().subscribe(data => {
+      if (data.obj_response.status === 201) {
+        this.restaurants = data.result;
+      }
+    });
+  }
+
+  getRestaurntMenuTypes() {
+    this.restaurantService.getRestaurantMenuTypes().subscribe(data => {
+      if (data.obj_response.status === 201) {
+        this.restaurantMenuTypes = data.result;
+      }
+    });
   }
 
 }

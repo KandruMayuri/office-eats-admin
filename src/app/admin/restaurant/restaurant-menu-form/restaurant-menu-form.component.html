@@ -6,18 +6,64 @@
 </div>
 <div class="modal-body">
   <form [formGroup]="restaurantMenuForm" novalidate="novalidate" (ngSubmit)="saveRestaurantType()" autocomplete="off">
-    <div class="form-group">
-      <label for="restaurantMenuTypeName">Restaurant Menu Name</label>
-      <input type="text" class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuTypeName'].errors && !restaurantMenuForm.controls['restaurantMenuTypeName'].pristine}"
-        id="restaurantMenuTypeName" formControlName="restaurantMenuTypeName" placeholder="Enter restaurant menu name">
-      <div *ngIf="restaurantMenuForm.controls['restaurantMenuTypeName'].errors && !restaurantMenuForm.controls['restaurantMenuTypeName'].pristine"
+    <div class=" form-group">
+      <label>Restaurant</label>
+      <select class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantId'].errors && !restaurantMenuForm.controls['restaurantId'].pristine}"
+        name="restaurantId" id="restaurantId" formControlName="restaurantId">
+        <option value="">Select Restaurant</option>
+        <option *ngFor="let restaurant of restaurants" [ngValue]="restaurant.restaurantId">{{restaurant.restaurantName}}</option>
+      </select>
+      <div *ngIf="restaurantMenuForm.controls['restaurantId'].errors && !restaurantMenuForm.controls['restaurantId'].pristine"
         class="invalid-feedback">
-        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuTypeName'].errors.required">Restaurant type is required.</div>
+        <div [hidden]="!restaurantMenuForm.controls['restaurantId'].errors.required">Restaurant is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="restaurantMenuTypeId">Restaurant Menu Type</label>
+      <select class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuTypeId'].errors && !restaurantMenuForm.controls['restaurantMenuTypeId'].pristine}"
+        name="restaurantMenuTypeId" id="restaurantMenuTypeId" formControlName="restaurantMenuTypeId">
+        <option value="">Select Restaurant Menu Type</option>
+        <option *ngFor="let restaurantMenuType of restaurantMenuTypes" [ngValue]="restaurantMenuType.restaurantMenuTypeId">{{restaurantMenuType.restaurantMenuTypeName}}</option>
+      </select>
+      <div *ngIf="restaurantMenuForm.controls['restaurantMenuTypeId'].errors && !restaurantMenuForm.controls['restaurantMenuTypeId'].pristine"
+        class="invalid-feedback">
+        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuTypeId'].errors.required">Restaurant menu type is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="restaurantMenuOrderType">Restaurant Menu Type</label>
+      <select class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuOrderType'].errors && !restaurantMenuForm.controls['restaurantMenuOrderType'].pristine}"
+        name="restaurantMenuOrderType" id="restaurantMenuOrderType" formControlName="restaurantMenuOrderType">
+        <option value="">Select Restaurant Menu Order Type</option>
+        <option value="0">Individual Order</option>
+        <option value="1">Catering</option>
+      </select>
+      <div *ngIf="restaurantMenuForm.controls['restaurantMenuOrderType'].errors && !restaurantMenuForm.controls['restaurantMenuOrderType'].pristine"
+        class="invalid-feedback">
+        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuOrderType'].errors.required">Restaurant menu order type is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="restaurantMenuName">Restaurant Menu Name</label>
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuName'].errors && !restaurantMenuForm.controls['restaurantMenuName'].pristine}"
+        id="restaurantMenuName" formControlName="restaurantMenuName">
+      <div *ngIf="restaurantMenuForm.controls['restaurantMenuName'].errors && !restaurantMenuForm.controls['restaurantMenuName'].pristine"
+        class="invalid-feedback">
+        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuName'].errors.required">Restaurant menu name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="restaurantMenuPrice">Restaurant Menu Price</label>
+      <input type="text" class="form-control" currencyMask [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuPrice'].errors && !restaurantMenuForm.controls['restaurantMenuPrice'].pristine}"
+        id="restaurantMenuPrice" formControlName="restaurantMenuPrice">
+      <div *ngIf="restaurantMenuForm.controls['restaurantMenuPrice'].errors && !restaurantMenuForm.controls['restaurantMenuPrice'].pristine"
+        class="invalid-feedback">
+        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuPrice'].errors.required">Restaurant menu price is required.</div>
       </div>
     </div>
   </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-outline-primary" (click)="saveRestaurantType()" [disabled]="restaurantMenuForm.invalid">Save</button>
+  <button type="button" class="btn btn-outline-primary" (click)="saveRestaurantType()" [disabled]="restaurantMenuForm.invalid">Save</button>
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
 </div>

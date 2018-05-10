@@ -50,6 +50,7 @@
             <div *ngIf="restaurantFormGroup.controls['restaurantPhone1'].errors && !restaurantFormGroup.controls['restaurantPhone1'].pristine" class="invalid-feedback">
               <div [hidden]="!restaurantFormGroup.controls['restaurantPhone1'].errors.required">Phone Number 1 is required.</div>
               <div [hidden]="!restaurantFormGroup.controls['restaurantPhone1'].errors.minlength">Phone Number 1 must be at least 5 characters long.</div>
+              <div [hidden]="!restaurantFormGroup.controls['restaurantPhone1'].errors.pattern">Numbers only.</div>
             </div>
           </div>
         </div>
@@ -60,6 +61,7 @@
             <div *ngIf="restaurantFormGroup.controls['restaurantPhone2'].errors && !restaurantFormGroup.controls['restaurantPhone2'].pristine" class="invalid-feedback">
               <div [hidden]="!restaurantFormGroup.controls['restaurantPhone2'].errors.required">Phone Number 2 is required.</div>
               <div [hidden]="!restaurantFormGroup.controls['restaurantPhone2'].errors.minlength">Phone Number 2 must be at least 5 characters long.</div>
+              <div [hidden]="!restaurantFormGroup.controls['restaurantPhone2'].errors.pattern">Numbers only.</div>
             </div>
           </div>
         </div>
@@ -70,6 +72,7 @@
             <div *ngIf="restaurantFormGroup.controls['restaurantTextPhoneNumber'].errors && !restaurantFormGroup.controls['restaurantTextPhoneNumber'].pristine" class="invalid-feedback">
               <div [hidden]="!restaurantFormGroup.controls['restaurantTextPhoneNumber'].errors.required">Text Phone Number is required.</div>
               <div [hidden]="!restaurantFormGroup.controls['restaurantTextPhoneNumber'].errors.minlength">Text Phone Number must be at least 5 characters long.</div>
+              <div [hidden]="!restaurantFormGroup.controls['restaurantTextPhoneNumber'].errors.pattern">Numbers only.</div>
             </div>
           </div>
         </div>
@@ -82,6 +85,7 @@
             <div *ngIf="restaurantFormGroup.controls['restaurantFaxNumber'].errors && !restaurantFormGroup.controls['restaurantFaxNumber'].pristine" class="invalid-feedback">
               <div [hidden]="!restaurantFormGroup.controls['restaurantFaxNumber'].errors.required">Fax is required.</div>
               <div [hidden]="!restaurantFormGroup.controls['restaurantFaxNumber'].errors.minlength">Fax must be at least 5 characters long.</div>
+              <div [hidden]="!restaurantFormGroup.controls['restaurantFaxNumber'].errors.pattern">Numbers only.</div>
             </div>
           </div>
         </div>
@@ -141,6 +145,7 @@
           <div *ngIf="restaurantFormGroup.controls['restaurantZipCode'].errors && !restaurantFormGroup.controls['restaurantZipCode'].pristine" class="invalid-feedback">
             <div [hidden]="!restaurantFormGroup.controls['restaurantZipCode'].errors.required">Zip is required.</div>
             <div [hidden]="!restaurantFormGroup.controls['restaurantZipCode'].errors.minlength">Zip must be at least 6 characters long.</div>
+            <div [hidden]="!restaurantFormGroup.controls['restaurantZipCode'].errors.pattern">Numbers only.</div>
           </div>
         </div>
         <div class="col-sm-3 form-group">
@@ -204,8 +209,7 @@
           </div>
         </div>
       </div>
-      <code>{{restaurantFormGroup.value | json}}</code>
-      <button type="submit" class="btn btn-primary" (click)="createRestaurant()">Save</button>
+      <button type="submit" class="btn btn-primary" (click)="createRestaurant()" [disabled]="restaurantFormGroup.invalid">Save</button>
     </form>
   </div>
 </div>

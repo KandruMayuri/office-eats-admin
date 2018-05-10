@@ -15,6 +15,7 @@ import { RestaurantMenuFormComponent } from './restaurant/restaurant-menu-form/r
 import { RestaurantMenuTypeFormComponent } from './restaurant/restaurant-menu-type-form/restaurant-menu-type-form.component';
 import { GrowlModule } from 'primeng/growl';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { MessageService } from 'primeng/components/common/messageservice';
     ReactiveFormsModule,
     NgbModule,
     AdminRoutingModule,
-    GrowlModule
+    GrowlModule,
+    CurrencyMaskModule
   ],
   declarations: [AdminComponent, RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
   entryComponents: [RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],

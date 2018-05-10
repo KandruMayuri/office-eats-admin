@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { RestaurantService } from '../restaurant.service';
 import { RestaurantType } from '../restaurant';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @Component({
   selector: 'app-restaurant-form',
@@ -15,7 +17,9 @@ export class RestaurantFormComponent implements OnInit {
   restaurantTypes: RestaurantType[];
   weekDays: Array<any>;
   constructor(private restaurantService: RestaurantService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.weekDays = [
@@ -60,24 +64,29 @@ export class RestaurantFormComponent implements OnInit {
       ]),
       restaurantPhone1: new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(5),
+        Validators.pattern('^(0|[1-9][0-9]*)$')
       ]),
       restaurantPhone2: new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(5),
+        Validators.pattern('^(0|[1-9][0-9]*)$')
       ]),
       restaurantTextPhoneNumber: new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(5),
+        Validators.pattern('^(0|[1-9][0-9]*)$')
       ]),
       restaurantFaxNumber: new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(5),
+        Validators.pattern('^(0|[1-9][0-9]*)$')
       ]),
       restaurantOpenDays: this.fb.array([]),
       restaurantZipCode: new FormControl('', [
         Validators.required,
-        Validators.minLength(6)
+        Validators.minLength(6),
+        Validators.pattern('^(0|[1-9][0-9]*)$')
       ]),
       restaurantTypeId: new FormControl('', [
         Validators.required
@@ -118,7 +127,8 @@ export class RestaurantFormComponent implements OnInit {
       ]),
       restaurantDiscount: new FormControl('', [
         Validators.required
-      ])
+      ]),
+      restaurantLogo: new FormControl('')
     });
 
     this.getRestaurantTypes();
@@ -128,7 +138,10 @@ export class RestaurantFormComponent implements OnInit {
     if (this.restaurantFormGroup.valid) {
       this.restaurantFormGroup.value.restaurantOpenDays = this.restaurantFormGroup.value.restaurantOpenDays.join();
       this.restaurantService.createRestaurant(this.restaurantFormGroup.value).subscribe(data => {
-        console.log(data);
+        if (data.obj_response.status === 201) {
+          this.messageService.add({severity: 'success', detail: 'Successfully added restaurant.'});
+          this.router.navigate(['restaurants']);
+        }
       });
     }
   }

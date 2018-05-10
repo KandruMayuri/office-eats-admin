@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
 import { Restaurant } from '../restaurant';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -12,7 +13,8 @@ export class RestaurantListComponent implements OnInit {
   restaurants: Restaurant[];
   isShowLoader: boolean;
 
-  constructor( private restaurantService: RestaurantService  ) { }
+  constructor(private restaurantService: RestaurantService,
+    private router: Router) { }
 
   ngOnInit() {
     this.isShowLoader = true;
@@ -26,6 +28,14 @@ export class RestaurantListComponent implements OnInit {
         this.isShowLoader = false;
       }
     });
+  }
+
+  viewRestaurantMenu(restaurantId: number) {
+    this.router.navigate(['/restaurant/menu/', restaurantId]);
+  }
+
+  newRestaurant() {
+    this.router.navigate(['/restaurant/new/']);
   }
 }
 

@@ -16,15 +16,17 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Restaurant Type</th>
+            <th scope="col">Menu Name</th>
+            <th scope="col">Menu Type Name</th>
+            <th scope="col">Price</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let restaurantMenu of restaurantMenus">
-            <td scope="row">{{restaurantMenu.restaurantMenuTypeId}}</td>
+            <td>{{restaurantMenu.restaurantMenuName}}</td>
             <td>{{restaurantMenu.restaurantMenuTypeName}}</td>
+            <td>{{restaurantMenu.restaurantMenuPrice}}</td>
             <td>
               <button type="button" class="btn btn-outline-secondary btn-sm">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
