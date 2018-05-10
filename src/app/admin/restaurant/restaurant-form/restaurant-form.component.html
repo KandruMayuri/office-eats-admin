@@ -3,7 +3,8 @@
     <li class="breadcrumb-item">
       <a routerLink="/restaurants">Restaurants</a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">New Restaurant</li>
+    <li class="breadcrumb-item active" *ngIf="!restaurantId" aria-current="page">New Restaurant</li>
+    <li class="breadcrumb-item active" *ngIf="restaurantId" aria-current="page">Edit Restaurant</li>
   </ol>
 </nav>
 
@@ -90,10 +91,10 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
+          <div class="form-group" formArrayName="restaurantOpenDays">
             <label>Open Days</label>
             <br>
-            <div class="form-check form-check-inline" *ngFor="let weekday of weekDays">
+            <div class="form-check form-check-inline" *ngFor="let weekday of weekDays;  let i = index;" >
                 <input class="form-check-input" type="checkbox" (change)="onChangeWeekDay(weekday.value, $event.target.checked)">
                 <label class="form-check-label" for="inlineCheckbox1">{{weekday.name}}</label>
               </div>
@@ -209,7 +210,10 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="createRestaurant()" [disabled]="restaurantFormGroup.invalid">Save</button>
+      {{restaurantFormGroup.value | json}}
+      <div class="clearfix">
+        <button type="submit" class="btn btn-primary float-right" (click)="saveRestaurant()" [disabled]="restaurantFormGroup.invalid">Save</button>
+      </div>
     </form>
   </div>
 </div>

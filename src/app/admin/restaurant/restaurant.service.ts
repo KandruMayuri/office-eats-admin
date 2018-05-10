@@ -18,6 +18,8 @@ import { CommonObjResponse } from '../../shared/models/common-response';
 export class RestaurantService {
 
   private getRestaurantsUrl = baseURL + 'restaurants/listing';
+  private getRestaurantUrl = baseURL + 'restaurants/view/';
+  private updateRestaurantUrl = baseURL + 'restaurants/update/';
   private getRestaurantTypesUrl = baseURL + 'restaurants/type/list';
   private getRestaurantMenusUrl = baseURL + 'restaurants/menu/list/';
   private getRestaurantMenuTypesUrl = baseURL + 'restaurants/menu_type/list';
@@ -31,6 +33,22 @@ export class RestaurantService {
   getRestaurants() {
     return this.httpClient
       .post<GetRestaurantsResponse>(this.getRestaurantsUrl, {})
+      .map(res => {
+        return res;
+      });
+  }
+
+  getRestaurant(restaurantId) {
+    return this.httpClient
+      .post<GetRestaurantsResponse>(this.getRestaurantUrl + restaurantId, {})
+      .map(res => {
+        return res;
+      });
+  }
+
+  updateRestaurant(restaurant: Restaurant) {
+    return this.httpClient
+      .post<GetRestaurantsResponse>(this.updateRestaurantUrl, restaurant)
       .map(res => {
         return res;
       });

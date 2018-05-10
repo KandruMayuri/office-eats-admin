@@ -9,7 +9,7 @@ export interface Restaurant {
   restaurantEmail: string;
   restaurantFaxNumber: number;
   restaurantId: number;
-  restaurantIndividualDeliveryDee: number;
+  restaurantIndividualDeliveryFee: number;
   restaurantLogo: string;
   restaurantMinimumAmount: number;
   restaurantName: string;
