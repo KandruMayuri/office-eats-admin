@@ -24,8 +24,8 @@ export class AdminComponent implements OnInit {
     const modalRef = this.modalService.open(RestaurantTypeFormComponent, { centered: true });
     modalRef.componentInstance.modalTitle = 'New Restaurant Type';
     modalRef.result.then((result) => {
-      this.router.navigate(['restaurant/types']);
-      console.log(result);
+      // this.router.navigate(['restaurant/types']);
+      // console.log(result);
     }, (reason) => {
     });
   }
@@ -35,7 +35,7 @@ export class AdminComponent implements OnInit {
     modalRef.componentInstance.modalTitle = 'New Restaurant Menu';
     modalRef.result.then((result) => {
       // this.router.navigate(['restaurant/menus']);
-      console.log(result);
+      // console.log(result);
     }, (reason) => {
     });
   }
@@ -44,8 +44,8 @@ export class AdminComponent implements OnInit {
     const modalRef = this.modalService.open(RestaurantMenuTypeFormComponent, { centered: true });
     modalRef.componentInstance.modalTitle = 'New Restaurant Menu Type';
     modalRef.result.then((result) => {
-      console.log(result);
-      this.router.navigate(['restaurant/menu/types']);
+      // console.log(result);
+      // this.router.navigate(['restaurant/menu-types']);
     }, (reason) => {
     });
   }

@@ -24,8 +24,8 @@ export class RestaurantService {
   private deleteRestaurantUrl = baseURL + 'restaurants/delete/';
 
   private getRestaurantTypesUrl = baseURL + 'restaurants/type/list';
-  private createRestaurantTypeUrl = baseURL + 'restaurants/type/update';
-  private updateRestaurantTypeUrl = baseURL + 'restaurants/type/create';
+  private createRestaurantTypeUrl = baseURL + 'restaurants/type/create';
+  private updateRestaurantTypeUrl = baseURL + 'restaurants/type/update';
   private deleteRestaurantTypeUrl = baseURL + 'restaurants/type/delete';
 
   private createRestaurantMenuUrl = baseURL + 'restaurants/menu/create';
