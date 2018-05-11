@@ -13,3 +13,18 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/*#region ng prime multiselect*/
+body .ui-multiselect {
+  padding: .375rem .75rem;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  .ui-multiselect-label {
+    margin: 0;
+    padding: 0;
+  }
+  .ui-multiselect-trigger .fa {
+    margin-top: 0.6em;
+  }
+}

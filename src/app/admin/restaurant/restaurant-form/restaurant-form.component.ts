@@ -31,31 +31,31 @@ export class RestaurantFormComponent implements OnInit {
   ngOnInit() {
     this.weekDays = [
       {
-        name: 'Monday',
+        label: 'Monday',
         value: 'mon'
       },
       {
-        name: 'Tuesday',
+        label: 'Tuesday',
         value: 'tue'
       },
       {
-        name: 'Wednesday',
+        label: 'Wednesday',
         value: 'wed'
       },
       {
-        name: 'Thursday',
+        label: 'Thursday',
         value: 'thu'
       },
       {
-        name: 'Friday',
+        label: 'Friday',
         value: 'fri'
       },
       {
-        name: 'Saturday',
+        label: 'Saturday',
         value: 'sat'
       },
       {
-        name: 'Sunday',
+        label: 'Sunday',
         value: 'sun'
       }
     ];
@@ -90,7 +90,9 @@ export class RestaurantFormComponent implements OnInit {
         Validators.minLength(5),
         Validators.pattern('^(0|[1-9][0-9]*)$')
       ]),
-      restaurantOpenDays: this.fb.array([]),
+      restaurantOpenDays: new FormControl('', [
+        Validators.required
+      ]),
       restaurantZipCode: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -193,11 +195,8 @@ export class RestaurantFormComponent implements OnInit {
           restaurantIndividualDeliveryFee: this.restaurant.restaurantIndividualDeliveryFee,
           restaurantCateringDeliveryFee: this.restaurant.restaurantCateringDeliveryFee,
           restaurantLogo: this.restaurant.restaurantLogo,
-          restaurantOpenDays: this.restaurant.restaurantOpenDays.split(',')
+          restaurantOpenDays: this.restaurant.restaurantOpenDays.split(','),
         });
-
-        // this.setOpenDays();
-        console.log(this.restaurant);
       }
     });
   }
@@ -208,16 +207,6 @@ export class RestaurantFormComponent implements OnInit {
         this.restaurantTypes = data.result;
       }
     });
-  }
-
-  onChangeWeekDay(weekday: string, isChecked: boolean) {
-    const openDaysFormArray = <FormArray>this.restaurantFormGroup.controls.restaurantOpenDays;
-      if (isChecked) {
-        openDaysFormArray.push(new FormControl(weekday));
-      } else {
-        const index = openDaysFormArray.controls.findIndex(x => x.value === weekday);
-        openDaysFormArray.removeAt(index);
-      }
   }
 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 import { RestaurantFormRoutingModule } from './restaurant-form-routing.module';
 import { RestaurantFormComponent } from './restaurant-form.component';
@@ -12,7 +13,8 @@ import { RestaurantFormComponent } from './restaurant-form.component';
     FormsModule,
     ReactiveFormsModule,
     CurrencyMaskModule,
-    RestaurantFormRoutingModule
+    RestaurantFormRoutingModule,
+    MultiSelectModule
   ],
   declarations: [RestaurantFormComponent]
 })
