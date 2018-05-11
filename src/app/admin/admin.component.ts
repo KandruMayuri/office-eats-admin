@@ -4,6 +4,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { RestaurantTypeFormComponent } from './restaurant/restaurant-type-form/restaurant-type-form.component';
 import { RestaurantMenuTypeFormComponent } from './restaurant/restaurant-menu-type-form/restaurant-menu-type-form.component';
 import { RestaurantMenuFormComponent } from './restaurant/restaurant-menu-form/restaurant-menu-form.component';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +14,8 @@ import { RestaurantMenuFormComponent } from './restaurant/restaurant-menu-form/r
 export class AdminComponent implements OnInit {
   public isCollapsed = false;
   constructor(private modalService: NgbModal,
-    private router: Router) { }
+  private router: Router,
+  private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -45,6 +47,14 @@ export class AdminComponent implements OnInit {
       console.log(result);
       this.router.navigate(['restaurant/menu/types']);
     }, (reason) => {
+    });
+  }
+
+  signOut() {
+    this.userService.signOut().subscribe(data => {
+      if (data.obj_response.status === 201) {
+        this.router.navigate(['auth/sign-in']);
+      }
     });
   }
 }
