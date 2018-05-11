@@ -22,14 +22,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let restaurantType of restaurantTypes">
+          <tr *ngFor="let restaurantType of restaurantTypes; let i = index">
             <td scope="row">{{restaurantType.restaurantTypeId}}</td>
             <td>{{restaurantType.restaurantTypeName}}</td>
             <td>
               <button type="button" class="btn btn-outline-secondary btn-sm">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </button>
-              <button type="button" class="btn btn-outline-danger btn-sm">
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteRestaurantType()">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
             </td>

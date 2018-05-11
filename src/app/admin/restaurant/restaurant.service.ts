@@ -27,6 +27,7 @@ export class RestaurantService {
   private createRestaurantTypeUrl = baseURL + 'restaurants/type/create';
   private createRestaurantMenuUrl = baseURL + 'restaurants/menu/create';
   private createRestaurantMenuTypeUrl = baseURL + 'restaurants/menu_type/create';
+  private deleteRestaurantTypeUrl = baseURL + 'restaurants/type/delete';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -87,6 +88,14 @@ export class RestaurantService {
   }
 
   createRestaurantType(restaurantType: RestaurantType) {
+    return this.httpClient
+      .post<CommonObjResponse>(this.createRestaurantTypeUrl, restaurantType)
+      .map(res => {
+        return res;
+      });
+  }
+
+  deleteRestaurantType(restaurantType: RestaurantType) {
     return this.httpClient
       .post<CommonObjResponse>(this.createRestaurantTypeUrl, restaurantType)
       .map(res => {
