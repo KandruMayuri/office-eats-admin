@@ -31,13 +31,14 @@
               <button type="button" class="btn btn-outline-secondary btn-sm">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </button>
-              <button type="button" class="btn btn-outline-danger btn-sm">
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteRestaurantMenu(restaurantMenu.restaurantMenuId)">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </div>    
+    <div class="loader-small m-auto" *ngIf="isShowLoader"></div>
   </div>
 </div>

@@ -32,7 +32,7 @@ export interface RestaurantType {
 }
 
 export interface RestaurantMenu {
-  restaurantMenuTypeId: number;
+  restaurantMenuId: number;
   restaurantMenuTypeName: string;
 }
 

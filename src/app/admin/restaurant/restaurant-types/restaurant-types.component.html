@@ -29,7 +29,7 @@
               <button type="button" class="btn btn-outline-secondary btn-sm">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </button>
-              <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteRestaurantType()">
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteRestaurantType(restaurantType.restaurantTypeId)">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
             </td>
@@ -37,5 +37,6 @@
         </tbody>
       </table>
     </div>
+    <div class="loader-small m-auto" *ngIf="isShowLoader"></div>
   </div>
 </div>

@@ -16,6 +16,8 @@ import { RestaurantMenuTypeFormComponent } from './restaurant/restaurant-menu-ty
 import { GrowlModule } from 'primeng/growl';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -26,7 +28,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     NgbModule,
     AdminRoutingModule,
     GrowlModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    ConfirmDialogModule
   ],
   declarations: [AdminComponent, RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
   entryComponents: [RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
@@ -43,7 +46,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    ConfirmationService
   ]
 })
 export class AdminModule { }
