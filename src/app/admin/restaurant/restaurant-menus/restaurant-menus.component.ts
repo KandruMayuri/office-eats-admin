@@ -57,7 +57,7 @@ export class RestaurantMenusComponent implements OnInit {
       accept: () => {
         this.restaurantService.deleteRestaurantMenu(restaurantMenuId).subscribe(data => {
           if (data.obj_response.status === 201) {
-            this.messageService.add({severity: 'success', detail: 'Successfully deleted restaurant.'});
+            this.messageService.add({severity: 'success', detail: 'Successfully deleted restaurant menu.'});
             this.getRestaurantMenus();
           }
         });
