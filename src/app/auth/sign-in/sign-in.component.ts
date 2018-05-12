@@ -17,9 +17,11 @@ import { UserService } from '../../shared/services/user.service';
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
+  isLoading: boolean;
+
   constructor(private fb: FormBuilder,
-    private router: Router,
-    private userService: UserService) {  }
+  private router: Router,
+  private userService: UserService) {  }
 
   ngOnInit() {
     this.createForm();
@@ -33,9 +35,11 @@ export class SignInComponent implements OnInit {
   }
 
   signIn() {
+    this.isLoading = true;
     if (this.signInForm.valid) {
       this.userService.signIn(this.signInForm.value).subscribe(data => {
         if (data.obj_response.status === 201 ) {
+          this.isLoading = false;
           this.router.navigate(['restaurants']);
         }
       });

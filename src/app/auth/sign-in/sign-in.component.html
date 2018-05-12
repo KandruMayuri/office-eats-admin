@@ -23,7 +23,7 @@
               <div [hidden]="!signInForm.controls['u_password'].errors.required">Password is required.</div>
             </div>
           </div>
-          <button type="submit" class="btn btn-block btn-primary" [disabled]="signInForm.invalid">Sign In</button>
+          <button type="submit" class="btn btn-block btn-primary" [ngClass]="{'loading': isLoading}" [disabled]="signInForm.invalid">Sign In</button>
         </form>
       </div>
     </div>
