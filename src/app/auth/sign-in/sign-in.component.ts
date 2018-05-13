@@ -39,9 +39,10 @@ export class SignInComponent implements OnInit {
     if (this.signInForm.valid) {
       this.userService.signIn(this.signInForm.value).subscribe(data => {
         if (data.obj_response.status === 201 ) {
-          this.isLoading = false;
           this.router.navigate(['restaurants']);
         }
+      }, error => {
+        this.isLoading = false;
       });
     }
   }
