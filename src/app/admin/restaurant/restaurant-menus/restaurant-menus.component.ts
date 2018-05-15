@@ -36,12 +36,15 @@ export class RestaurantMenusComponent implements OnInit {
         this.restaurantMenus = data.result;
         this.isShowLoader = false;
       }
+    }, error => {
+      this.isShowLoader = false;
     });
   }
 
   newRestaurantMenu() {
     const modalRef = this.modalService.open(RestaurantMenuFormComponent, { centered: true });
     modalRef.componentInstance.modalTitle = 'New Restaurant Menu';
+    modalRef.componentInstance.restaurantId = this.restaurantId;
     modalRef.result.then((result) => {
       console.log(result);
       this.getRestaurantMenus();
