@@ -7,7 +7,7 @@
   </ol>
 </nav>
 <div class="clearfix mb-3">
-  <button type="button" class="btn btn-outline-primary float-right" (click)="open()">New Restaurant Type</button>
+  <button type="button" class="btn btn-outline-primary float-right" (click)="newRestaurantType()">New Restaurant Type</button>
 </div>
 
 <div class="row">
@@ -26,7 +26,7 @@
             <td scope="row">{{restaurantType.restaurantTypeId}}</td>
             <td>{{restaurantType.restaurantTypeName}}</td>
             <td>
-              <button type="button" class="btn btn-outline-secondary btn-sm">
+              <button type="button" class="btn btn-outline-secondary btn-sm" (click)="editRestaurantType(restaurantType.restaurantTypeId)">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </button>
               <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteRestaurantType(restaurantType.restaurantTypeId)">

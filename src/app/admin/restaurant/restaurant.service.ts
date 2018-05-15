@@ -26,6 +26,7 @@ export class RestaurantService {
 
   private getRestaurantTypesUrl = baseURL + 'restaurants/type/list';
   private createRestaurantTypeUrl = baseURL + 'restaurants/type/create';
+  private getRestaurantTypeUrl = baseURL + 'restaurants/type/view/';
   private updateRestaurantTypeUrl = baseURL + 'restaurants/type/update';
   private deleteRestaurantTypeUrl = baseURL + 'restaurants/type/delete';
 
@@ -83,6 +84,14 @@ export class RestaurantService {
   getRestaurantTypes() {
     return this.httpClient
       .post<GetRestaurantTypesResponse>(this.getRestaurantTypesUrl, {})
+      .map(res => {
+        return res;
+      });
+  }
+
+  getRestaurantType(restaurantTypeId: number) {
+    return this.httpClient
+      .post<GetRestaurantTypesResponse>(this.getRestaurantTypeUrl + restaurantTypeId, {})
       .map(res => {
         return res;
       });

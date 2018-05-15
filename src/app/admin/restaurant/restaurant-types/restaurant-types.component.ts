@@ -53,9 +53,20 @@ export class RestaurantTypesComponent implements OnInit {
     });
   }
 
-  open() {
+  newRestaurantType() {
     const modalRef = this.modalService.open(RestaurantTypeFormComponent, { centered: true });
     modalRef.componentInstance.modalTitle = 'New Restaurant Type';
+    modalRef.result.then((result) => {
+      console.log(result);
+      this.getRestaurantTypes();
+    }, (reason) => {
+    });
+  }
+
+  editRestaurantType(restaurantTypeId: number) {
+    const modalRef = this.modalService.open(RestaurantTypeFormComponent, { centered: true });
+    modalRef.componentInstance.modalTitle = 'Update Restaurant Type';
+    modalRef.componentInstance.restaurantTypeId = restaurantTypeId;
     modalRef.result.then((result) => {
       console.log(result);
       this.getRestaurantTypes();

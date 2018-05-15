@@ -16,31 +16,55 @@ import { RestaurantService } from '../restaurant.service';
 })
 export class RestaurantTypeFormComponent implements OnInit {
   @Input() modalTitle;
+  @Input() restaurantTypeId;
   restaurantTypeForm: FormGroup;
+
   constructor(private fb: FormBuilder,
     private restaurantService: RestaurantService,
     public activeModal: NgbActiveModal,
     private messageService: MessageService) { }
 
   ngOnInit() {
+    if (this.restaurantTypeId) {
+      this.getRestaurantType();
+    }
     this.createForm();
   }
 
   createForm(): void {
     this.restaurantTypeForm = this.fb.group({
+      restaurantTypeId: [''],
       restaurantTypeName: ['', Validators.required]
     });
   }
 
   saveRestaurantType() {
     if (this.restaurantTypeForm.valid) {
-      this.restaurantService.createRestaurantType(this.restaurantTypeForm.value).subscribe(data => {
-        if (data.obj_response.status === 201) {
-          this.messageService.add({severity: 'success', detail: 'Successfully added restaurant type.'});
-          this.activeModal.close(data.obj_response.message);
-        }
-      });
+      if (this.restaurantTypeId) {
+        this.restaurantService.updateRestaurantType(this.restaurantTypeForm.value).subscribe(data => {
+          if (data.obj_response.status === 201) {
+            this.messageService.add({severity: 'success', detail: 'Successfully updated restaurant type.'});
+            this.activeModal.close(data.obj_response.message);
+          }
+        });
+      } else {
+        this.restaurantService.createRestaurantType(this.restaurantTypeForm.value).subscribe(data => {
+          if (data.obj_response.status === 201) {
+            this.messageService.add({severity: 'success', detail: 'Successfully added restaurant type.'});
+            this.activeModal.close(data.obj_response.message);
+          }
+        });
+      }
     }
+  }
+
+  getRestaurantType() {
+    this.restaurantService.getRestaurantType(this.restaurantTypeId).subscribe(data => {
+      this.restaurantTypeForm.patchValue({
+        restaurantTypeId: data.result[0].restaurantTypeId,
+        restaurantTypeName: data.result[0].restaurantTypeName
+      });
+    });
   }
 
 }
