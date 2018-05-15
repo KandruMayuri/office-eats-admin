@@ -21,6 +21,7 @@ export class RestaurantFormComponent implements OnInit {
   restaurantId: number;
   restaurant: Restaurant;
   states: State[];
+  isLoading: boolean;
 
   constructor(private restaurantService: RestaurantService,
   private fb: FormBuilder,
@@ -155,18 +156,28 @@ export class RestaurantFormComponent implements OnInit {
     if (this.restaurantFormGroup.valid) {
       this.restaurantFormGroup.value.restaurantOpenDays = this.restaurantFormGroup.value.restaurantOpenDays.join();
       if (this.restaurantId) {
+        this.isLoading = true ;
         this.restaurantService.updateRestaurant(this.restaurantFormGroup.value).subscribe(data => {
           if (data.obj_response.status === 201) {
             this.messageService.add({severity: 'success', detail: 'Successfully updated restaurant.'});
+            this.isLoading = false;
             this.router.navigate(['restaurants']);
           }
+        }, error => {
+          this.restaurantFormGroup.value.restaurantOpenDays = this.restaurantFormGroup.value.restaurantOpenDays.split();
+          this.isLoading = false;
         });
       } else {
+        this.isLoading = true ;
         this.restaurantService.createRestaurant(this.restaurantFormGroup.value).subscribe(data => {
           if (data.obj_response.status === 201) {
             this.messageService.add({severity: 'success', detail: 'Successfully added restaurant.'});
+            this.isLoading = false;
             this.router.navigate(['restaurants']);
           }
+        }, error => {
+          this.restaurantFormGroup.value.restaurantOpenDays = this.restaurantFormGroup.value.restaurantOpenDays.split();
+          this.isLoading = false;
         });
       }
     }

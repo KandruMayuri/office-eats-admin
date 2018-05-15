@@ -22,6 +22,7 @@ export class RestaurantMenuFormComponent implements OnInit {
   restaurantMenuForm: FormGroup;
   restaurants: Restaurant[];
   restaurantMenuTypes: RestaurantMenuType[];
+  isLoading: boolean;
 
   constructor(private fb: FormBuilder,
     private restaurantService: RestaurantService,
@@ -39,18 +40,22 @@ export class RestaurantMenuFormComponent implements OnInit {
       restaurantId: ['', Validators.required],
       restaurantMenuTypeId: ['', Validators.required],
       restaurantMenuOrderType: ['', Validators.required],
-      restaurantMenuName: ['', Validators.required],
+      restaurantMenuName: ['', [Validators.required, Validators.minLength(3)]],
       restaurantMenuPrice: ['', Validators.required]
     });
   }
 
   saveRestaurantType() {
     if (this.restaurantMenuForm.valid) {
+      this.isLoading = true ;
       this.restaurantService.createRestaurantMenu(this.restaurantMenuForm.value).subscribe(data => {
         if (data.obj_response.status === 201) {
           this.messageService.add({severity: 'success', detail: 'Successfully added restaurant menu.'});
           this.activeModal.close(data.obj_response.message);
+          this.isLoading = false ;
         }
+      }, error => {
+        this.isLoading = false;
       });
     }
   }

@@ -13,11 +13,12 @@
       <div *ngIf="restaurantTypeForm.controls['restaurantTypeName'].errors && !restaurantTypeForm.controls['restaurantTypeName'].pristine"
         class="invalid-feedback">
         <div [hidden]="!restaurantTypeForm.controls['restaurantTypeName'].errors.required">Restaurant type is required.</div>
+        <div [hidden]="!restaurantTypeForm.controls['restaurantTypeName'].errors.minlength"> Restaurant type must be at least 2 characters long.</div>
       </div>
     </div>
   </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-outline-primary" (click)="saveRestaurantType()" [disabled]="restaurantTypeForm.invalid">Save</button>
+    <button type="button" class="btn btn-primary" [ngClass]="{'loading': isLoading}" (click)="saveRestaurantType()" [disabled]="restaurantTypeForm.invalid">Save</button>
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
 </div>

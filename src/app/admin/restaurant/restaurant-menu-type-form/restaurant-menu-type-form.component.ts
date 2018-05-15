@@ -18,6 +18,8 @@ export class RestaurantMenuTypeFormComponent implements OnInit {
 
   @Input() modalTitle;
   restaurantMenuTypeForm: FormGroup;
+  isLoading: boolean;
+
   constructor(private fb: FormBuilder,
     private restaurantService: RestaurantService,
     public activeModal: NgbActiveModal,
@@ -29,17 +31,21 @@ export class RestaurantMenuTypeFormComponent implements OnInit {
 
   createForm(): void {
     this.restaurantMenuTypeForm = this.fb.group({
-      restaurantMenuTypeName: ['', Validators.required]
+      restaurantMenuTypeName: ['', [Validators.required, Validators.minLength(2)]]
     });
   }
 
   saveRestaurantMenuType() {
     if (this.restaurantMenuTypeForm.valid) {
+      this.isLoading = true ;
       this.restaurantService.createRestaurantMenuType(this.restaurantMenuTypeForm.value).subscribe(data => {
         if (data.obj_response.status === 201) {
           this.messageService.add({severity: 'success', detail: 'Successfully added restaurant menu type.'});
           this.activeModal.close(data.obj_response.message);
+          this.isLoading = false;
         }
+      }, error => {
+        this.isLoading = false;
       });
     }
   }

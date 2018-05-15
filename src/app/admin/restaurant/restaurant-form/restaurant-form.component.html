@@ -252,7 +252,7 @@
         </div>
       </div>
       <div class="clearfix">
-        <button type="submit" class="btn btn-primary float-right" (click)="saveRestaurant()" [disabled]="restaurantFormGroup.invalid">Save</button>
+        <button type="submit" class="btn btn-primary float-right" [ngClass]="{'loading': isLoading}" (click)="saveRestaurant()" [disabled]="restaurantFormGroup.invalid">Save</button>
       </div>
     </form>
   </div>
