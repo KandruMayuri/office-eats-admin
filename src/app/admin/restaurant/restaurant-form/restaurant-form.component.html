@@ -106,9 +106,9 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-              <label>Open Days</label>
-              <p-multiSelect [options]="weekDays" [styleClass]="'w-100 form-control'" formControlName="restaurantOpenDays"></p-multiSelect>
-              <div *ngIf="restaurantFormGroup.controls['restaurantOpenDays'].errors && !restaurantFormGroup.controls['restaurantOpenDays'].pristine"
+            <label>Open Days</label>
+            <p-multiSelect [options]="weekDays" [styleClass]="'w-100 form-control'" formControlName="restaurantOpenDays"></p-multiSelect>
+            <div *ngIf="restaurantFormGroup.controls['restaurantOpenDays'].errors && !restaurantFormGroup.controls['restaurantOpenDays'].pristine"
               class="text-danger">
               <div [hidden]="!restaurantFormGroup.controls['restaurantOpenDays'].errors.required">Open days is required.</div>
             </div>
@@ -154,8 +154,11 @@
         </div>
         <div class="col-sm-3 form-group">
           <label>State</label>
-          <input type="text" name="restaurantState" id="restaurantState" class="form-control" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantState'].errors && !restaurantFormGroup.controls['restaurantState'].pristine}"
-            formControlName="restaurantState" maxlength="50">
+          <select class="form-control" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantState'].errors && !restaurantFormGroup.controls['restaurantState'].pristine}"
+            name="restaurantState" id="restaurantState" formControlName="restaurantState">
+            <option value="">Select State</option>
+            <option *ngFor="let state of states" [ngValue]="state.abbreviation">{{state.name}}</option>
+          </select>
           <div *ngIf="restaurantFormGroup.controls['restaurantState'].errors && !restaurantFormGroup.controls['restaurantState'].pristine"
             class="invalid-feedback">
             <div [hidden]="!restaurantFormGroup.controls['restaurantState'].errors.required">State is required.</div>
@@ -175,7 +178,7 @@
         </div>
         <div class="col-sm-3 form-group">
           <label>Country</label>
-          <input type="text" class="form-control" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantCountry'].errors && !restaurantFormGroup.controls['restaurantCountry'].pristine}"
+          <input type="text" class="form-control" [attr.disabled]="true" [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantCountry'].errors && !restaurantFormGroup.controls['restaurantCountry'].pristine}"
             name="restaurantCountry" formControlName="restaurantCountry" maxlength="50">
           <div *ngIf="restaurantFormGroup.controls['restaurantCountry'].errors && !restaurantFormGroup.controls['restaurantCountry'].pristine"
             class="invalid-feedback">
@@ -206,7 +209,7 @@
         <div class="col-sm-4 form-group">
           <label>Discount</label>
           <input type="text" class="form-control" currencyMask [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantDiscount'].errors && !restaurantFormGroup.controls['restaurantDiscount'].pristine}"
-            name="restaurantDiscount" formControlName="restaurantDiscount">
+            name="restaurantDiscount" formControlName="restaurantDiscount" [options]="{ prefix: '% '}">
           <div *ngIf="restaurantFormGroup.controls['restaurantDiscount'].errors && !restaurantFormGroup.controls['restaurantDiscount'].pristine"
             class="invalid-feedback">
             <div [hidden]="!restaurantFormGroup.controls['restaurantDiscount'].errors.required">Discount is required.</div>
@@ -227,7 +230,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label>Individual Delivery Amount</label>
+            <label>Individual Delivery Charge</label>
             <input type="text" class="form-control" currencyMask [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].pristine}"
               name="restaurantIndividualDeliveryFee" id="restaurantIndividualDeliveryFee" formControlName="restaurantIndividualDeliveryFee">
             <div *ngIf="restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantIndividualDeliveryFee'].pristine"
@@ -238,7 +241,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label>Catering Delivery Amount</label>
+            <label>Catering Delivery Charge</label>
             <input type="text" class="form-control" currencyMask [ngClass]="{'is-invalid': restaurantFormGroup.controls['restaurantCateringDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantCateringDeliveryFee'].pristine}"
               name="restaurantCateringDeliveryFee" id="restaurantCateringDeliveryFee" formControlName="restaurantCateringDeliveryFee">
             <div *ngIf="restaurantFormGroup.controls['restaurantCateringDeliveryFee'].errors && !restaurantFormGroup.controls['restaurantCateringDeliveryFee'].pristine"

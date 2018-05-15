@@ -13,6 +13,7 @@ import {
   GetRestaurantMenuTypesResponse,
   RestaurantMenuType } from './restaurant';
 import { CommonObjResponse } from '../../shared/models/common-response';
+import { State } from '../../shared/models/state';
 
 @Injectable()
 export class RestaurantService {
@@ -166,5 +167,13 @@ export class RestaurantService {
       .map(res => {
         return res;
       });
+  }
+
+  getUSAStates() {
+    return this.httpClient
+    .get<State[]>('./assets/data/us-states.json')
+    .map(res => {
+      return res;
+    });
   }
 }

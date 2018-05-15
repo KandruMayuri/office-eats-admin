@@ -5,6 +5,7 @@ import { RestaurantType, Restaurant } from '../restaurant';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { ActivatedRoute } from '@angular/router';
+import { State } from '../../../shared/models/state';
 
 @Component({
   selector: 'app-restaurant-form',
@@ -19,6 +20,7 @@ export class RestaurantFormComponent implements OnInit {
   weekDays: Array<any>;
   restaurantId: number;
   restaurant: Restaurant;
+  states: State[];
 
   constructor(private restaurantService: RestaurantService,
   private fb: FormBuilder,
@@ -120,14 +122,13 @@ export class RestaurantFormComponent implements OnInit {
         Validators.required
       ]),
       restaurantState: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3)
+        Validators.required
       ]),
       restaurantCity: new FormControl('', [
         Validators.required,
         Validators.minLength(3)
       ]),
-      restaurantCountry: new FormControl('', [
+      restaurantCountry: new FormControl('USA', [
         Validators.required,
         Validators.minLength(3)
       ]),
@@ -146,6 +147,8 @@ export class RestaurantFormComponent implements OnInit {
     }
 
     this.getRestaurantTypes();
+
+    this.getUSAStates();
   }
 
   saveRestaurant() {
@@ -206,6 +209,12 @@ export class RestaurantFormComponent implements OnInit {
       if (data.obj_response.status === 201) {
         this.restaurantTypes = data.result;
       }
+    });
+  }
+
+  getUSAStates() {
+    this.restaurantService.getUSAStates().subscribe(data => {
+      this.states = data;
     });
   }
 
