@@ -19,6 +19,19 @@
       </div>
     </div>
     <div class="form-group">
+      <label for="restaurantMenuOrderType">Order Type</label>
+      <select class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuOrderType'].errors && !restaurantMenuForm.controls['restaurantMenuOrderType'].pristine}"
+        name="restaurantMenuOrderType" id="restaurantMenuOrderType" formControlName="restaurantMenuOrderType">
+        <option value="">Select Order Type</option>
+        <option value="0">Individual Order</option>
+        <option value="1">Catering</option>
+      </select>
+      <div *ngIf="restaurantMenuForm.controls['restaurantMenuOrderType'].errors && !restaurantMenuForm.controls['restaurantMenuOrderType'].pristine"
+        class="invalid-feedback">
+        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuOrderType'].errors.required">Order type is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
       <label for="restaurantMenuTypeId">Restaurant Menu Type</label>
       <select class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuTypeId'].errors && !restaurantMenuForm.controls['restaurantMenuTypeId'].pristine}"
         name="restaurantMenuTypeId" id="restaurantMenuTypeId" formControlName="restaurantMenuTypeId">
@@ -31,26 +44,13 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="restaurantMenuOrderType">Restaurant Menu Type</label>
-      <select class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuOrderType'].errors && !restaurantMenuForm.controls['restaurantMenuOrderType'].pristine}"
-        name="restaurantMenuOrderType" id="restaurantMenuOrderType" formControlName="restaurantMenuOrderType">
-        <option value="">Select Restaurant Menu Order Type</option>
-        <option value="0">Individual Order</option>
-        <option value="1">Catering</option>
-      </select>
-      <div *ngIf="restaurantMenuForm.controls['restaurantMenuOrderType'].errors && !restaurantMenuForm.controls['restaurantMenuOrderType'].pristine"
-        class="invalid-feedback">
-        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuOrderType'].errors.required">Restaurant menu order type is required.</div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="restaurantMenuName">Restaurant Menu Name</label>
+      <label for="restaurantMenuName">Menu Item</label>
       <input type="text" class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuName'].errors && !restaurantMenuForm.controls['restaurantMenuName'].pristine}"
         id="restaurantMenuName" formControlName="restaurantMenuName">
       <div *ngIf="restaurantMenuForm.controls['restaurantMenuName'].errors && !restaurantMenuForm.controls['restaurantMenuName'].pristine"
         class="invalid-feedback">
-        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuName'].errors.required">Restaurant menu name is required.</div>
-        <div [hidden]="!restaurantFormGroup.controls['restaurantMenuName'].errors.minlength"> Restaurant menu name must be at least 3 characters long.</div>
+        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuName'].errors.required">Menu item is required.</div>
+        <div [hidden]="!restaurantFormGroup.controls['restaurantMenuName'].errors.minlength">Menu item must be at least 3 characters long.</div>
       </div>
     </div>
     <div class="form-group">
@@ -61,6 +61,10 @@
         class="invalid-feedback">
         <div [hidden]="!restaurantMenuForm.controls['restaurantMenuPrice'].errors.required">Restaurant menu price is required.</div>
       </div>
+    </div>
+    <div class="form-group">
+      <label for="restaurantMenuDescription">Menu Description</label>
+      <textarea  class="form-control" id="restaurantMenuDescription" formControlName="restaurantMenuDescription"></textarea>
     </div>
   </form>
 </div>

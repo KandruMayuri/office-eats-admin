@@ -42,7 +42,8 @@ export class RestaurantMenuFormComponent implements OnInit {
       restaurantMenuTypeId: ['', Validators.required],
       restaurantMenuOrderType: ['', Validators.required],
       restaurantMenuName: ['', [Validators.required, Validators.minLength(3)]],
-      restaurantMenuPrice: ['', Validators.required]
+      restaurantMenuPrice: ['', Validators.required],
+      restaurantMenuDescription: ['']
     });
   }
 
