@@ -36,7 +36,7 @@ export interface RestaurantMenu {
   restaurantMenuTypeName: string;
 }
 
-export interface RestaurantMenuType {
+export interface RestaurantMenuCategory {
   restaurantMenuTypeId: number;
   restaurantMenuTypeName: string;
 }
@@ -56,7 +56,7 @@ export interface GetRestaurantMenusResponse {
   result: RestaurantMenu [];
 }
 
-export interface GetRestaurantMenuTypesResponse {
+export interface GetRestaurantMenuCategoriesResponse {
   obj_response: CommonResponse;
-  result: RestaurantMenuType [];
+  result: RestaurantMenuCategory [];
 }

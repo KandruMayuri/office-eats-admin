@@ -8,16 +8,15 @@ import {
   FormControl
 } from '@angular/forms';
 import { RestaurantService } from '../restaurant.service';
-
 @Component({
-  selector: 'app-restaurant-menu-type-form',
-  templateUrl: './restaurant-menu-type-form.component.html',
-  styleUrls: ['./restaurant-menu-type-form.component.scss']
+  selector: 'app-restaurant-menu-category-form',
+  templateUrl: './restaurant-menu-category-form.component.html',
+  styleUrls: ['./restaurant-menu-category-form.component.scss']
 })
-export class RestaurantMenuTypeFormComponent implements OnInit {
+export class RestaurantMenuCategoryFormComponent implements OnInit {
 
   @Input() modalTitle;
-  restaurantMenuTypeForm: FormGroup;
+  restaurantMenuCategoryForm: FormGroup;
   isLoading: boolean;
 
   constructor(private fb: FormBuilder,
@@ -30,17 +29,17 @@ export class RestaurantMenuTypeFormComponent implements OnInit {
   }
 
   createForm(): void {
-    this.restaurantMenuTypeForm = this.fb.group({
+    this.restaurantMenuCategoryForm = this.fb.group({
       restaurantMenuTypeName: ['', [Validators.required, Validators.minLength(2)]]
     });
   }
 
   saveRestaurantMenuType() {
-    if (this.restaurantMenuTypeForm.valid) {
+    if (this.restaurantMenuCategoryForm.valid) {
       this.isLoading = true ;
-      this.restaurantService.createRestaurantMenuType(this.restaurantMenuTypeForm.value).subscribe(data => {
+      this.restaurantService.createRestaurantMenuCategory(this.restaurantMenuCategoryForm.value).subscribe(data => {
         if (data.obj_response.status === 201) {
-          this.messageService.add({severity: 'success', detail: 'Successfully added restaurant menu type.'});
+          this.messageService.add({severity: 'success', detail: 'Successfully added restaurant menu category.'});
           this.activeModal.close(data.obj_response.message);
           this.isLoading = false;
         }

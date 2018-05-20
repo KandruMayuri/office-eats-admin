@@ -3,11 +3,11 @@
     <li class="breadcrumb-item">
       <a routerLink="/restaurants">Restaurants</a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Menu Types</li>
+    <li class="breadcrumb-item active" aria-current="page">Menu Categories</li>
   </ol>
 </nav>
 <div class="clearfix mb-3">
-  <button type="button" class="btn btn-outline-primary float-right" (click)="open()">New Restaurant Menu Type</button>
+  <button type="button" class="btn btn-outline-primary float-right" (click)="open()">New Restaurant Menu Category</button>
 </div>
 
 <div class="row">
@@ -17,19 +17,19 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Restaurant Menu Type</th>
+            <th scope="col">Restaurant Menu Category</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let restaurantMenuType of restaurantMenuTypes">
-            <td scope="row">{{restaurantMenuType.restaurantMenuTypeId}}</td>
-            <td>{{restaurantMenuType.restaurantMenuTypeName}}</td>
+          <tr *ngFor="let restaurantMenuCategory of restaurantMenuCategories">
+            <td scope="row">{{restaurantMenuCategory.restaurantMenuTypeId}}</td>
+            <td>{{restaurantMenuCategory.restaurantMenuTypeName}}</td>
             <td>
               <button type="button" class="btn btn-outline-secondary btn-sm">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </button>
-              <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteRestaurantMenuType(restaurantMenuType.restaurantMenuTypeId)">
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteRestaurantMenuCategory(restaurantMenuCategory.restaurantMenuTypeId)">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
             </td>

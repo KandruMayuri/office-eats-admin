@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { RestaurantTypeFormComponent } from './restaurant/restaurant-type-form/restaurant-type-form.component';
-import { RestaurantMenuTypeFormComponent } from './restaurant/restaurant-menu-type-form/restaurant-menu-type-form.component';
 import { RestaurantMenuFormComponent } from './restaurant/restaurant-menu-form/restaurant-menu-form.component';
 import { UserService } from '../shared/services/user.service';
+import { RestaurantMenuCategoryFormComponent } from './restaurant/restaurant-menu-category-form/restaurant-menu-category-form.component';
 
 @Component({
   selector: 'app-admin',
@@ -40,12 +40,12 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  openRestaurntMenuTypeModal() {
-    const modalRef = this.modalService.open(RestaurantMenuTypeFormComponent, { centered: true });
-    modalRef.componentInstance.modalTitle = 'New Restaurant Menu Type';
+  openRestaurntMenuCategoryModal() {
+    const modalRef = this.modalService.open(RestaurantMenuCategoryFormComponent, { centered: true });
+    modalRef.componentInstance.modalTitle = 'New Restaurant Menu Category';
     modalRef.result.then((result) => {
       // console.log(result);
-      // this.router.navigate(['restaurant/menu-types']);
+      // this.router.navigate(['restaurant/menu-categories']);
     }, (reason) => {
     });
   }

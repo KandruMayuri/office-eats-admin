@@ -26,8 +26,8 @@ const routes: Routes = [
         loadChildren: './restaurant/restaurant-menus/restaurant-menus.module#RestaurantMenusModule'
       },
       {
-        path: 'restaurant/menu-types',
-        loadChildren: './restaurant/restaurant-menu-types/restaurant-menu-types.module#RestaurantMenuTypesModule'
+        path: 'restaurant/menu-categories',
+        loadChildren: './restaurant/restaurant-menu-categories/restaurant-menu-categories.module#RestaurantMenuCategoriesModule'
       }
     ]
   }

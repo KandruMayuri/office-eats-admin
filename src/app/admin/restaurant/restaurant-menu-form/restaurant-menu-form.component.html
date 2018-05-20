@@ -32,15 +32,15 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="restaurantMenuTypeId">Restaurant Menu Type</label>
+      <label for="restaurantMenuTypeId">Restaurant Menu Category</label>
       <select class="form-control" [ngClass]="{'is-invalid': restaurantMenuForm.controls['restaurantMenuTypeId'].errors && !restaurantMenuForm.controls['restaurantMenuTypeId'].pristine}"
         name="restaurantMenuTypeId" id="restaurantMenuTypeId" formControlName="restaurantMenuTypeId">
-        <option value="">Select Restaurant Menu Type</option>
-        <option *ngFor="let restaurantMenuType of restaurantMenuTypes" [ngValue]="restaurantMenuType.restaurantMenuTypeId">{{restaurantMenuType.restaurantMenuTypeName}}</option>
+        <option value="">Select Restaurant Menu Category</option>
+        <option *ngFor="let restaurantMenuCategory of restaurantMenuCategories" [ngValue]="restaurantMenuCategory.restaurantMenuTypeId">{{restaurantMenuCategory.restaurantMenuTypeName}}</option>
       </select>
       <div *ngIf="restaurantMenuForm.controls['restaurantMenuTypeId'].errors && !restaurantMenuForm.controls['restaurantMenuTypeId'].pristine"
         class="invalid-feedback">
-        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuTypeId'].errors.required">Restaurant menu type is required.</div>
+        <div [hidden]="!restaurantMenuForm.controls['restaurantMenuTypeId'].errors.required">Restaurant menu Category is required.</div>
       </div>
     </div>
     <div class="form-group">

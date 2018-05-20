@@ -8,7 +8,7 @@ import {
   FormControl
 } from '@angular/forms';
 import { RestaurantService } from '../restaurant.service';
-import { Restaurant, RestaurantMenuType } from '../restaurant';
+import { Restaurant, RestaurantMenuCategory } from '../restaurant';
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
 @Component({
@@ -22,7 +22,7 @@ export class RestaurantMenuFormComponent implements OnInit {
   @Input() restaurantId;
   restaurantMenuForm: FormGroup;
   restaurants: Restaurant[];
-  restaurantMenuTypes: RestaurantMenuType[];
+  restaurantMenuCategories: RestaurantMenuCategory[];
   isLoading: boolean;
 
   constructor(private fb: FormBuilder,
@@ -71,9 +71,9 @@ export class RestaurantMenuFormComponent implements OnInit {
   }
 
   getRestaurntMenuTypes() {
-    this.restaurantService.getRestaurantMenuTypes().subscribe(data => {
+    this.restaurantService.getRestaurantMenuCategories().subscribe(data => {
       if (data.obj_response.status === 201) {
-        this.restaurantMenuTypes = data.result;
+        this.restaurantMenuCategories = data.result;
       }
     });
   }

@@ -10,8 +10,8 @@ import {
   RestaurantType,
   GetRestaurantMenusResponse,
   RestaurantMenu,
-  GetRestaurantMenuTypesResponse,
-  RestaurantMenuType } from './restaurant';
+  GetRestaurantMenuCategoriesResponse,
+  RestaurantMenuCategory } from './restaurant';
 import { CommonObjResponse } from '../../shared/models/common-response';
 import { State } from '../../shared/models/state';
 
@@ -34,10 +34,10 @@ export class RestaurantService {
   private getRestaurantMenusUrl = baseURL + 'restaurants/menu/list/';
   private deleteRestaurantMenuUrl = baseURL + 'restaurants/menu/delete';
 
-  private createRestaurantMenuTypeUrl = baseURL + 'restaurants/menu_type/create';
-  private getRestaurantMenuTypesUrl = baseURL + 'restaurants/menu_type/list';
-  private updateRestaurantMenuTypeUrl = baseURL + 'restaurants/menu_type/update';
-  private deleteRestaurantMenuTypeUrl = baseURL + 'restaurants/menu_type/delete';
+  private createRestaurantMenuCategoryUrl = baseURL + 'restaurants/menu_type/create';
+  private getRestaurantMenuCategoriesUrl = baseURL + 'restaurants/menu_type/list';
+  private updateRestaurantMenuCategoryUrl = baseURL + 'restaurants/menu_type/update';
+  private deleteRestaurantMenuCategoryUrl = baseURL + 'restaurants/menu_type/delete';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -146,33 +146,33 @@ export class RestaurantService {
       });
   }
 
-  getRestaurantMenuTypes() {
+  getRestaurantMenuCategories() {
     return this.httpClient
-      .post<GetRestaurantMenuTypesResponse>(this.getRestaurantMenuTypesUrl, {})
+      .post<GetRestaurantMenuCategoriesResponse>(this.getRestaurantMenuCategoriesUrl, {})
       .map(res => {
         return res;
       });
   }
 
-  createRestaurantMenuType(restaurantMenuType: RestaurantMenuType) {
+  createRestaurantMenuCategory(restaurantMenuCategory: RestaurantMenuCategory) {
     return this.httpClient
-      .post<CommonObjResponse>(this.createRestaurantMenuTypeUrl, restaurantMenuType)
+      .post<CommonObjResponse>(this.createRestaurantMenuCategoryUrl, restaurantMenuCategory)
       .map(res => {
         return res;
       });
   }
 
-  updateRestaurantMenuType(restaurantMenuType: RestaurantMenuType) {
+  updateRestaurantMenuCategory(restaurantMenuCategory: RestaurantMenuCategory) {
     return this.httpClient
-      .post<CommonObjResponse>(this.updateRestaurantMenuTypeUrl, restaurantMenuType)
+      .post<CommonObjResponse>(this.updateRestaurantMenuCategoryUrl, restaurantMenuCategory)
       .map(res => {
         return res;
       });
   }
 
-  deleteRestaurantMenuType(restaurantMenuTypeId: number) {
+  deleteRestaurantMenuCategory(restaurantMenuTypeId: number) {
     return this.httpClient
-      .post<CommonObjResponse>(this.deleteRestaurantMenuTypeUrl, {restaurantMenuTypeIDs: [restaurantMenuTypeId]})
+      .post<CommonObjResponse>(this.deleteRestaurantMenuCategoryUrl, {restaurantMenuTypeIDs: [restaurantMenuTypeId]})
       .map(res => {
         return res;
       });

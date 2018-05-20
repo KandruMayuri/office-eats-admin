@@ -12,12 +12,14 @@ import { CommonInterceptor } from '../shared/interceptors/common.interceptor';
 import { TokenInterceptor } from '../shared/interceptors/token.interceptor';
 import { RestaurantTypeFormComponent } from './restaurant/restaurant-type-form/restaurant-type-form.component';
 import { RestaurantMenuFormComponent } from './restaurant/restaurant-menu-form/restaurant-menu-form.component';
-import { RestaurantMenuTypeFormComponent } from './restaurant/restaurant-menu-type-form/restaurant-menu-type-form.component';
+import { RestaurantMenuCategoryFormComponent } from './restaurant/restaurant-menu-category-form/restaurant-menu-category-form.component';
+
 import { GrowlModule } from 'primeng/growl';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+
 
 @NgModule({
   imports: [
@@ -31,8 +33,8 @@ import { ConfirmationService } from 'primeng/api';
     CurrencyMaskModule,
     ConfirmDialogModule
   ],
-  declarations: [AdminComponent, RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
-  entryComponents: [RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuTypeFormComponent],
+  declarations: [AdminComponent, RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuCategoryFormComponent],
+  entryComponents: [RestaurantTypeFormComponent, RestaurantMenuFormComponent, RestaurantMenuCategoryFormComponent],
   providers: [
     UserService,
     RestaurantService,
