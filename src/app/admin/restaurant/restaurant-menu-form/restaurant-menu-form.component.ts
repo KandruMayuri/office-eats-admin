@@ -38,7 +38,7 @@ export class RestaurantMenuFormComponent implements OnInit {
 
   createForm(): void {
     this.restaurantMenuForm = this.fb.group({
-      restaurantId: [this.restaurantId, Validators.required],
+      restaurantId: [this.restaurantId || '', Validators.required],
       restaurantMenuTypeId: ['', Validators.required],
       restaurantMenuOrderType: ['', Validators.required],
       restaurantMenuName: ['', [Validators.required, Validators.minLength(3)]],
