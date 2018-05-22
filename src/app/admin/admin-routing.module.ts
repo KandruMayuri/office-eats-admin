@@ -28,7 +28,13 @@ const routes: Routes = [
       {
         path: 'restaurant/menu-categories',
         loadChildren: './restaurant/restaurant-menu-categories/restaurant-menu-categories.module#RestaurantMenuCategoriesModule'
-      }
+      },
+      {
+        path: 'corporates', loadChildren: './corporate/corporate.module#CorporateModule'
+      },
+      {
+        path: 'corporate/new', loadChildren: './corporate/corporate-form/corporate-form.module#CorporateFormModule'
+      },
     ]
   }
 ];

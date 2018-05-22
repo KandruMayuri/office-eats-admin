@@ -1,0 +1,42 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Corporates</li>
+  </ol>
+</nav>
+<div class="clearfix mb-3">
+  <button type="button" class="btn btn-outline-primary float-right">New Corporate</button>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let corporate of corporates">
+            <td scope="row">{{corporate.corporateId}}</td>
+            <td>{{corporate.corporateName}}</td>
+            <td>{{corporate.contactPhone}}</td>
+            <td>{{corporate.corporateEmail}}</td>
+            <td>
+              <button type="button" class="btn btn-outline-secondary btn-sm" title="Edit">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="btn btn-outline-danger btn-sm" title="Delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="loader-small m-auto" *ngIf="isShowLoader"></div>
+  </div>
+</div>

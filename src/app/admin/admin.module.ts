@@ -8,6 +8,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { UserService } from '../shared/services/user.service';
 import { RestaurantService } from './restaurant/restaurant.service';
+import { CorporateService } from './corporate/corporate.service';
 import { CommonInterceptor } from '../shared/interceptors/common.interceptor';
 import { TokenInterceptor } from '../shared/interceptors/token.interceptor';
 import { RestaurantTypeFormComponent } from './restaurant/restaurant-type-form/restaurant-type-form.component';
@@ -38,6 +39,7 @@ import { ConfirmationService } from 'primeng/api';
   providers: [
     UserService,
     RestaurantService,
+    CorporateService,
     MessageService,
     {
       provide: HTTP_INTERCEPTORS,
