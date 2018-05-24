@@ -24,20 +24,32 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group">
-            <label>Corporate Email</label>
-            <input type="text" class="form-control" [ngClass]="{'is-invalid': corporateFormGroup.controls['corporateEmail'].errors && !corporateFormGroup.controls['corporateEmail'].pristine}"
-              name="corporateEmail" formControlName="corporateEmail" maxlength="50">
-            <div *ngIf="corporateFormGroup.controls['corporateEmail'].errors && !corporateFormGroup.controls['corporateEmail'].pristine"
+            <label>Contact Person</label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid': corporateFormGroup.controls['contactPerson'].errors && !corporateFormGroup.controls['contactPerson'].pristine}"
+              name="contactPerson" formControlName="contactPerson" maxlength="50">
+            <div *ngIf="corporateFormGroup.controls['contactPerson'].errors && !corporateFormGroup.controls['contactPerson'].pristine"
               class="invalid-feedback">
-              <div [hidden]="!corporateFormGroup.controls['corporateEmail'].errors.required">Corporate email is required.</div>
+              <div [hidden]="!corporateFormGroup.controls['contactPerson'].errors.required">Contact person is required.</div>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group">
-            <label>Corporate Phone</label>
+            <label>Contact Email</label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid': corporateFormGroup.controls['contactEmail'].errors && !corporateFormGroup.controls['contactEmail'].pristine}"
+              name="contactEmail" formControlName="contactEmail" maxlength="50">
+            <div *ngIf="corporateFormGroup.controls['contactEmail'].errors && !corporateFormGroup.controls['contactEmail'].pristine"
+              class="invalid-feedback">
+              <div [hidden]="!corporateFormGroup.controls['contactEmail'].errors.required">Contact email is required.</div>
+              <div [hidden]="!corporateFormGroup.controls['contactEmail'].errors.email">Invalid email.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label>Contact Phone</label>
             <input type="text" class="form-control" [ngClass]="{'is-invalid': corporateFormGroup.controls['contactPhone'].errors && !corporateFormGroup.controls['contactPhone'].pristine}"
               name="contactPhone" formControlName="contactPhone" maxlength="50">
             <div *ngIf="corporateFormGroup.controls['contactPhone'].errors && !corporateFormGroup.controls['contactPhone'].pristine"
@@ -49,18 +61,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label>Contact Person</label>
-            <input type="text" class="form-control" [ngClass]="{'is-invalid': corporateFormGroup.controls['contactPerson'].errors && !corporateFormGroup.controls['contactPerson'].pristine}"
-              name="contactPerson" formControlName="contactPerson" maxlength="50">
-            <div *ngIf="corporateFormGroup.controls['contactPerson'].errors && !corporateFormGroup.controls['contactPerson'].pristine"
-              class="invalid-feedback">
-              <div [hidden]="!corporateFormGroup.controls['contactPerson'].errors.required">Contact person is required.</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <div class="form-group">
             <label>Corporate Address</label>
             <input type="text" class="form-control" [ngClass]="{'is-invalid': corporateFormGroup.controls['corporateAddress'].errors && !corporateFormGroup.controls['corporateAddress'].pristine}"
@@ -124,10 +125,10 @@
           </div>
         </div>
       </div>
-      <code>{{corporateFormGroup.value | json}}</code>
       <div class="clearfix">
-          <button type="submit" class="btn btn-primary float-right" [ngClass]="{'loading': isLoading}" (click)="createCorporate()" [disabled]="corporateFormGroup.invalid">Save</button>
-        </div>
+        <button type="submit" class="btn btn-primary float-right" [ngClass]="{'loading': isLoading}" (click)="createCorporate()"
+          [disabled]="corporateFormGroup.invalid">Save</button>
+      </div>
     </form>
   </div>
 </div>

@@ -36,7 +36,7 @@ export class CorporateFormComponent implements OnInit {
       corporateName: new FormControl('', [
         Validators.required
       ]),
-      corporateEmail: new FormControl('', [
+      contactEmail: new FormControl('', [
         Validators.required, Validators.email
       ]),
       contactPhone: new FormControl('', [

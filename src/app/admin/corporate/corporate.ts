@@ -5,7 +5,7 @@ export interface Corporate {
   corporateName: string;
   corporateAddress: string;
   contactPerson: string;
-  corporateEmail: string;
+  contactEmail: string;
   contactPhone: number;
   corporateCountry: string;
   corporateState: string;
