@@ -36,6 +36,10 @@ export class CorporateListComponent implements OnInit {
     });
   }
 
+  newCorporate() {
+    this.router.navigate(['/corporate/new/']);
+  }
+
   editCorporate(corporateId: number) {
     this.router.navigate(['/corporate/edit/', corporateId]);
   }
