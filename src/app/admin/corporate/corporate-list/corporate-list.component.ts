@@ -36,4 +36,22 @@ export class CorporateListComponent implements OnInit {
     });
   }
 
+  deleteCorporate(corporateId: number) {
+    this.confirmationService.confirm({
+      message: 'Do you want to delete this record?',
+      header: 'Delete Confirmation',
+      icon: 'fa fa-trash',
+      accept: () => {
+        this.corporateService.deleteCorporate(corporateId).subscribe(data => {
+          if (data.obj_response.status === 201) {
+            this.messageService.add({severity: 'success', detail: 'Successfully deleted corporate.'});
+            this.getCorporates();
+          }
+        });
+      },
+      reject: () => {
+      }
+    });
+  }
+
 }

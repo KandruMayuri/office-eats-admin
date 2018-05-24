@@ -10,6 +10,8 @@ import { Corporate, GetCorporatesResponse } from './corporate';
 export class CorporateService {
   private getCorporatesUrl = baseURL + 'corporates/listing';
   private createCorporateUrl = baseURL + 'corporates/create';
+  private deleteCorporateUrl = baseURL + 'corporates/delete';
+
   constructor(private httpClient: HttpClient) { }
 
   getCorporates() {
@@ -23,6 +25,14 @@ export class CorporateService {
   createCorporate(corporate: Corporate) {
     return this.httpClient
       .post<CommonObjResponse>(this.createCorporateUrl, corporate)
+      .map(res => {
+        return res;
+      });
+  }
+
+  deleteCorporate(corporateId: number) {
+    return this.httpClient
+      .post<CommonObjResponse>(this.deleteCorporateUrl, {corporateIDs: [corporateId]})
       .map(res => {
         return res;
       });
