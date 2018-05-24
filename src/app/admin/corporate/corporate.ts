@@ -1,5 +1,6 @@
 
 import { CommonResponse } from '../../shared/models/common-response';
+import { Restaurant } from '../restaurant/restaurant';
 export interface Corporate {
   corporateId: number;
   corporateName: string;
@@ -10,6 +11,7 @@ export interface Corporate {
   corporateCountry: string;
   corporateState: string;
   corporateCity: string;
+  Restaurant: Restaurant[];
 }
 
 export interface GetCorporatesResponse {

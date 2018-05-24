@@ -36,6 +36,10 @@ export class CorporateListComponent implements OnInit {
     });
   }
 
+  editCorporate(corporateId: number) {
+    this.router.navigate(['/corporate/edit/', corporateId]);
+  }
+
   deleteCorporate(corporateId: number) {
     this.confirmationService.confirm({
       message: 'Do you want to delete this record?',

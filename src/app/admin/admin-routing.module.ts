@@ -35,6 +35,9 @@ const routes: Routes = [
       {
         path: 'corporate/new', loadChildren: './corporate/corporate-form/corporate-form.module#CorporateFormModule'
       },
+      {
+        path: 'corporate/edit/:id',  loadChildren: './corporate/corporate-form/corporate-form.module#CorporateFormModule'
+      },
     ]
   }
 ];
